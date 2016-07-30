@@ -251,34 +251,20 @@ function create_config( )
     "sh",
     "serverinfo"
     },
-    sudo_users = {80182995},--Sudo users
+    sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[MeGa shield v2.9
-An advanced administration bot based on TG-CLI written in Lua
-
-Github:
-https://github.com/hafez16/mega-shield
-
+    about_text = [[SweetherBot v 9.5.3
 Admins:
-@hafez1116hafez [Developer]
-@amirho3ien911 [Developer]
-@Eblis_alone [Manager]
-@Mmd_hei [sponsor]
-
-Special thanks to
-SEEDTEAM
-Hextor team
-Magic team
-Avira team
+@SweetherBotAdmin [Developer]
 
 Our channels
-@shieldTM [persian]
+@SweetherNews [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
 
 !creategroup [Name]
-Create a group
+Create agroup
 
 !createrealm [Name]
 Create a realm
