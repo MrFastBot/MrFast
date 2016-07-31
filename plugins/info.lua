@@ -491,7 +491,7 @@ local function run(msg, matches)
 					.."First Name: "..(msg.from.first_name or "-----").."\n"
 					.."Last Name: "..(msg.from.last_name or "-----").."\n\n"
 					.."Phone Number: "..number.."\n"
-					.."UserName: @"..(msg.from.username or "-----").."\n"
+					.."UserName: Telegram.me/"..(msg.from.username or "-----").."\n"
 					.."ID: "..msg.from.id.."\n\n"
 					.."Postion: "..usertype.."\n"
 					.."Rank: "..userrank.."\n\n"
