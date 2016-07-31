@@ -254,11 +254,13 @@ function create_config( )
     sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[SweetherBot v 9.5.3
-Admins:
-@SweetherBotAdmin [Developer]
+    
+My Team:
+Telegram.me/SweetherBotAdmin [Developer]
+Telegram.me/SweetherAdmin[Developer]
 
 Our channels
-@SweetherNews [persian]
+Telegram.me/SweetherNews [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -475,7 +477,7 @@ will return group ban list
 	help_text_super =[[
 SuperGroup Commands:
 
-!gpinfo
+!info
 Displays general info about the SuperGroup
 
 !admins
@@ -510,9 +512,6 @@ Unbans user from the SuperGroup
 !id
 Return SuperGroup ID or user id
 *For userID's: !id @username or reply !id*
-
-!id from
-Get ID of user message is forwarded from
 
 !kickme
 Kicks user from SuperGroup
@@ -611,8 +610,28 @@ Delete word in filter list
 !filterlist
 get filter list
 
-!clean msg [value]
+!del [value]
 
+!echo [Text]
+Echo Your Text
+
+!invite [username]
+invite User
+
+!me
+Show Your Postion
+
+!nerkh
+Show Nerkh
+
+!ping
+Pong!
+
+!support
+Join to Support group
+
+!time 
+Show Time
 !public [yes|no]
 Set chat visibility in pm !chats or !chatlist commands
 
