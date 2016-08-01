@@ -525,8 +525,8 @@ return {
 		"^(infodel) (.*)$",
 		"^(info) ([^%s]+) (.*)$",
 		"^([Ii]nfo) (.*)$",
-		"^(info)$",
-		"^(Info)$",
+		"^([Ii]nfo)$",
+		"^[#!/]([Ii]nfo)$"
 	},
 	run = run,
 }
