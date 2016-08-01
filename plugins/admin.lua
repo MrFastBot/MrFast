@@ -262,7 +262,7 @@ end
 		receiver = get_receiver(msg)
 		reload_plugins(true)
 		post_msg(receiver, "Reloaded!", ok_cb, false)
-		return "Reloaded!"
+		return ""
 	end
 	--[[*For Debug*
 	if matches[1] == "vardumpmsg" and is_admin1(msg) then
@@ -319,7 +319,7 @@ return {
 	"^[#!/](addcontact) (.*) (.*) (.*)$", 
 	"^[#!/](sendcontact) (.*) (.*) (.*)$",
 	"^[#!/](mycontact)$",
-	"^[#/!](reload)$",
+	"^reload$",
 	"^[#/!](updateid)$",
 	"^[#/!](sync_gbans)$",
 	"^[#/!](addlog)$",
