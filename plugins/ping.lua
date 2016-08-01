@@ -1,10 +1,10 @@
 local function run(msg, matches)
-local text =  "pong!"
+local text =  "Pong!"
 return text
 end
 return {
   patterns = {
-    '^ping$'
+    '^([Pp]ing)$'
 },
 run = run
 }
