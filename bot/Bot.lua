@@ -244,20 +244,32 @@ function create_config( )
     "lock_username",
     "lock_tag",
     "lock_reply",
-    "rmsg",
     "send",
     "set_type",
     "welcome",
     "sh",
-    "serverinfo"
+    "serverinfo",
+    "time",
+    "support",
+    "nerkh",
+    "kickme",
+    "keepcalm",
+    "show",
+    "ping",
+    "me",
+    "echo",
+    "id",
+    "info",
+    "imagepro",
+    "textTOgit"
     },
     sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[SweetherBot v 9.5.3
     
 My Team:
-Telegram.me/SweetherBotAdmin [Developer]
-Telegram.me/SweetherAdmin[Developer]
+@SweetherBotAdmin [Developer]
+@SweetherAdmin[Developer]
 
 Our channels
 Telegram.me/SweetherNews [persian]
