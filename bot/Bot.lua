@@ -534,7 +534,7 @@ This command will send text to [group_id]
 ❗️/me
 ❕نمایش مقام و اطلاعات شما 
 ❗️/nerkh
-❕نمایش نرخ گروخ با ربات Sweether
+❕نمایش نرخ گروه با ربات Sweether
 ❗️ping
 ❕پونگ!
 ❗️/time
