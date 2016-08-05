@@ -273,9 +273,9 @@ end
 local text = '➖➖➖➖➖➖➖➖➖➖\nGroup best users\n➖➖➖➖➖➖➖➖➖➖\n⬛1. '..maxname[1]..'['..maxuser[1]..']\n\n⚪Total message:'..maxtex[1] + maxph[1] + maxst[1] + maxoth[1]..'\n⚪Stickers: '..maxst[1]..'\n⚪Photos: '..maxph[1]..'\n⚪Texts: '..maxtex[1]..'\n⚪Other: '..maxoth[1]
 if maxid[2] then
 	if not maxid[3] then
-text = text..'\n➖➖➖➖➖➖➖➖➖➖\n⬛2.'..maxname[2]..'['..maxuser[2]..'\n⚪Total message: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n⚪Stickers: '..maxst[2]..'\n⚪Photos: '..maxph[2]..'\n⚪Texts: '..maxtex[2]..'\n⚪Other: '..maxoth[2]
+text = text..'\n➖➖➖➖➖➖➖➖➖➖\n⬛2.'..maxname[2]..'['..maxuser[2]..']\n⚪Total message: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n⚪Stickers: '..maxst[2]..'\n⚪Photos: '..maxph[2]..'\n⚪Texts: '..maxtex[2]..'\n⚪Other: '..maxoth[2]
 else
-text = text..'\n➖➖➖➖➖➖➖➖➖➖\n ⬛3⃣.'..maxname[3]..' ['..maxuser[3]..']\n⚪Total message: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n⚪Stickers: '..maxst[3]..'\n⚪Photos: '..maxph[3]..'\n⚪Texts: '..maxtex[3]..'\n⚪Other: '..maxoth[3]..'➖➖➖➖➖➖➖➖➖➖'
+text = text..'\n➖➖➖➖➖➖➖➖➖➖\n ⬛3.'..maxname[3]..'['..maxuser[3]..']\n⚪Total message: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n⚪Stickers: '..maxst[3]..'\n⚪Photos: '..maxph[3]..'\n⚪Texts: '..maxtex[3]..'\n⚪Other: '..maxoth[3]..'➖➖➖➖➖➖➖➖➖➖'
 end
 end
 send_msg('channel#id'..cb_extra, text, ok_cb, true)
