@@ -1,32 +1,82 @@
-do
+local function is_channel_disabled( receiver )
+	if not _config.disabled_channels then
+		return false
+	end
 
-local function send_title(cb_extra, success, result)
-  if success then
-   send_msg(cb_extra[1], cb_extra[2], ok_cb, false)
- end
+	if _config.disabled_channels[receiver] == nil then
+		return false
+	end
+
+  return _config.disabled_channels[receiver]
+end
+
+local function enable_channel(receiver)
+	if not _config.disabled_channels then
+		_config.disabled_channels = {}
+	end
+
+	if _config.disabled_channels[receiver] == nil then
+		return 'Bot onlined!'
+	end
+	
+	_config.disabled_channels[receiver] = false
+
+	save_config()
+	return "Bot onlined!"
+end
+
+local function disable_channel( receiver )
+	if not _config.disabled_channels then
+		_config.disabled_channels = {}
+	end
+	
+	_config.disabled_channels[receiver] = true
+
+	save_config()
+	return "Bot offlined"
+end
+
+local function pre_process(msg)
+	local receiver = get_receiver(msg)
+	
+	-- If sender is moderator then re-enable the channel
+	--if is_sudo(msg) then
+	if is_momod(msg) then
+	  if msg.text == "[!/]bot on" then
+	    enable_channel(receiver)
+	  end
+	end
+
+  if is_channel_disabled(receiver) then
+  	msg.text = ""
+  end
+
+	return msg
 end
 
 local function run(msg, matches)
-  local eq = URL.escape(matches[1])
-
-  local url = "http://latex.codecogs.com/png.download?"
-    .."\\dpi{400}%20\\LARGE%20"..eq
-
-  local receiver = get_receiver(msg)
-  local title = "Edit LaTeX on www.codecogs.com/eqnedit.php?latex="..eq
-  local file = download_to_file(url,'tex.webp')
-      send_document('chat#id'..msg.to.id, file, ok_cb , false)
+	local receiver = get_receiver(msg)
+	-- Enable a channel
+	if matches[1] == 'on' then
+		return enable_channel(receiver)
+	end
+	-- Disable a channel
+	if matches[1] == 'off' then
+		return disable_channel(receiver)
+	end
 end
 
 return {
-  description = "Convert LaTeX equation to image",
-  usage = {
-    "!tex [equation]: Convert LaTeX equation to image"
-  },
-  patterns = {
-    "^[!/#](sticker) (.+)$",
-  },
-  run = run
-}
-
-end
+	description = "Robot Switch", 
+	usage = {
+		"/bot on : enable robot in group",
+		"/bot off : disable robot in group" },
+	patterns = {
+		"^[!/#]bot (on)",
+		"^[!/#]bot (off)"
+		}, 
+	run = run,
+	privileged = true,
+	--moderated = true,
+	pre_process = pre_process
+} 
