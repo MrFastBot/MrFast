@@ -274,7 +274,8 @@ local text = '➖➖➖➖➖➖➖➖➖➖\nGroup best users\n➖➖➖➖➖�
 if maxid[2] then
 	if not maxid[3] then
 text = text..'\n➖➖➖➖➖➖➖➖➖➖\n⬛2.'..maxname[2]..'['..maxuser[2]..']\n⚪Total message: '..maxtex[2] + maxph[2] + maxst[2] + maxoth[2]..'\n⚪Stickers: '..maxst[2]..'\n⚪Photos: '..maxph[2]..'\n⚪Texts: '..maxtex[2]..'\n⚪Other: '..maxoth[2]
-else
+if maxid[2] then
+	 if not maxid[2] then
 text = text..'\n➖➖➖➖➖➖➖➖➖➖\n ⬛3.'..maxname[3]..'['..maxuser[3]..']\n⚪Total message: '..maxtex[3] + maxph[3] + maxst[3] + maxoth[3]..'\n⚪Stickers: '..maxst[3]..'\n⚪Photos: '..maxph[3]..'\n⚪Texts: '..maxtex[3]..'\n⚪Other: '..maxoth[3]..'➖➖➖➖➖➖➖➖➖➖'
 end
 end
