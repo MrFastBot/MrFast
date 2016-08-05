@@ -956,7 +956,7 @@ end
 function ban_list(chat_id)
 	local hash =  'banned:'..chat_id
 	local list = redis:smembers(hash)
-	local text = "Ban list for: [ID: "..chat_id.." ]:\n\n"
+	local text = "➖➖➖➖➖➖➖➖➖➖\nBan list for ["..string.gsub(msg.to.print_name,"_"," ").."\n➖➖➖➖➖➖➖➖➖➖\n"
 	for k,v in pairs(list) do
 	local user_info = redis:hgetall('user:'..v)
 		if user_info and user_info.print_name then
@@ -974,7 +974,7 @@ end
 function banall_list()
 	local hash =  'gbanned'
 	local list = redis:smembers(hash)
-	local text = "Global bans!\n\n"
+	local text = "➖➖➖➖➖➖➖➖➖➖\nGlobal bans list⤵️\n➖➖➖➖➖➖➖➖➖➖\n"
 	for k,v in pairs(list) do
     local user_info = redis:hgetall('user:'..v)
 		if user_info and user_info.print_name then
@@ -1018,7 +1018,7 @@ end
 
 --Begin Chat Mutes
 function set_mutes(chat_id)
-	mutes = {[1]= "Audio: no",[2]= "Photo: no",[3]= "All: no",[4]="Documents: no",[5]="Text: no",[6]= "Video: no",[7]= "Gifs: no"}
+	mutes = {[1]= "🔈Audio: 🔊",[2]= "🔈Photo: 🔊",[3]= "🔈All: 🔊",[4]="🔈Documents: 🔊",[5]= "🔈Text: 🔊",[6]= "🔈Video: 🔊",[7]= "🔈Gifs: 🔊"}
 	local hash = 'mute:'..chat_id
 	for k,v in pairsByKeys(mutes) do
 	setting = v
@@ -1027,7 +1027,7 @@ function set_mutes(chat_id)
 end
 
 function has_mutes(chat_id)
-	mutes = {[1]= "Audio: no",[2]= "Photo: no",[3]= "All: no",[4]="Documents: no",[5]="Text: no",[6]= "Video: no",[7]= "Gifs: no"}
+	mutes = {[1]= "🔈Audio: 🔊",[2]= "🔈Photo: 🔊",[3]= "🔈All: 🔊",[4]="🔈Documents: 🔊",[5]= "🔈Text: 🔊",[6]= "🔈Video: 🔊",[7]= "🔈Gifs: 🔊"}
 	local hash = 'mute:'..chat_id
 	for k,v in pairsByKeys(mutes) do
 		setting = v
@@ -1043,8 +1043,8 @@ end
 
 function mute(chat_id, msg_type)
   local hash = 'mute:'..chat_id
-  local yes = "yes"
-  local no = 'no'
+  local yes = "🔇"
+  local no = '🔊'
   local old_setting = msg_type..': '..no
   local setting = msg_type..': '..yes
   redis:srem(hash, old_setting)
@@ -1061,8 +1061,8 @@ end
 function unmute(chat_id, msg_type)
 	--Save on redis
 	local hash = 'mute:'..chat_id
-	local yes = 'yes'
-	local no = 'no'
+	local yes = '🔇'
+	local no = '🔊'
 	local old_setting = msg_type..': '..yes
 	local setting = msg_type..': '..no
 	redis:srem(hash, old_setting)
@@ -1090,9 +1090,9 @@ end
 function mutes_list(chat_id)
 	local hash =  'mute:'..chat_id
 	local list = redis:smembers(hash)
-	local text = "Mutes for: [ID: "..chat_id.." ]:\n\n"
+	local text = "➖➖➖➖➖➖➖➖➖➖\nMutes for ["..string.gsub(msg.to.print_name,"_"," ").."]⤵️\n➖➖➖➖➖➖➖➖➖➖\n"
 	for k,v in pairsByKeys(list) do
-		text = text.."Mute "..v.."\n"
+		text = text.."🔘Mute "..v.."\n"
 	end
   return text
 end
@@ -1101,7 +1101,7 @@ end
 function muted_user_list(chat_id)
 	local hash =  'mute_user:'..chat_id
 	local list = redis:smembers(hash)
-	local text = "Muted Users for: [ID: "..chat_id.." ]:\n\n"
+	local text = "➖➖➖➖➖➖➖➖➖➖\nMuted Users for ["..string.gsub(msg.to.print_name,"_"," ").."]⤵️\n➖➖➖➖➖➖➖➖➖➖\n"
 	for k,v in pairsByKeys(list) do
   		local user_info = redis:hgetall('user:'..v)
 		if user_info and user_info.print_name then
