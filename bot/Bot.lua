@@ -218,6 +218,7 @@ function create_config( )
     "arabic_lock",
     "banhammer",
     "broadcast",
+    "channel",
     "charge",
     "dlban",
     "echo",
