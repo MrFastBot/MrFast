@@ -1,42 +1,34 @@
-do
-
-function run(msg, matches)
-
-local fuse = '➖➖➖➖➖➖➖➖➖➖\nYou have new message\n➖➖➖➖➖➖➖➖➖➖ \n🔵User ID: ['.. msg.from.id ..']\n🔵User Name: ['..msg.from.print_name..']\n🔵Username:[@ '..msg.from.username..']\n➖➖➖➖➖➖➖➖➖➖\n🔵User Message⤵️\n\n\n'.. matches[1]..'➖➖➖➖➖➖➖➖➖➖'
-local fuses = '!printf user#id' .. msg.from.id
-
-
-    local text = matches[1]
- bannedidone = string.find(msg.from.id, '123')
-        bannedidtwo =string.find(msg.from.id, '465')       
-   bannedidthree =string.find(msg.from.id, '678')  
-
-
-        print(msg.to.id)
-
-        if bannedidone or bannedidtwo or bannedidthree then                    --for banned people
- return'You are banned from send [feedbak]'
- else
-
-
-                 local sends0 = send_msg('chat#107855523', fuse, ok_cb, false)
-
- return 'Your message sended!\nPlease waite for answer!'
-
-     
-
+do local function run(msg, matches)
+ local data = load_data(_config.moderation.data)
+ local settings = data[tostring(msg.to.id)]['settings']
+ local group_link = data[tostring(msg.to.id)]['settings']['set_link']
+ if not group_link then
+  group_link = "Not Found!"
+ end
+ local message = 'You have new message\n➖➖➖➖➖➖➖➖➖➖\n'
+ .."🔗Group Info:\n"
+ .."🔴Name: "..msg.to.print_name.."\n"
+ .."🔴ID:  "..msg.to.id.."\n"
+ .."🔴Link:  "..group_link.."\n➖➖➖➖➖➖➖➖➖➖\n"
+ .."🔗User Info:\n"
+ .."⚪️Name:  "..msg.from.print_name.."\n"
+ .."⚪️Username:  @"..msg.from.username.."\n"
+ .."⚪️ID:  "..msg.from.id.."\n".."➖➖➖➖➖➖➖➖➖➖\nMessage: \n"..matches[1]
+ local userid = 'user#id239607076'
+ send_large_msg(userid, message)
+ return "Thanks For FeedBack!\nPlease Waite For Answer."
 end
 
-end
 return {
-  description = "Feedback",
-
-  usage = "feedback : پیام خودرا ارسال کنید",
-  patterns = {
-    "^[Ff]eedback (.*)$",
-    "^[/!#]([Ff]eedback) (.*)$"
-  },
-  run = run
+ description = "Feedback System",
+ usagehtm = '<tr><td align="center">feedback متن</td><td align="right">ارسال نظر شما به سودو ادمین همراه مشخصات کامل شما و گروهی که در آن هستید</td></tr>',
+ usage = {
+  "feedback (pm) : ارسال نظر به سودو",
+ },
+ patterns = {
+  "^[Ff]eedback (.*)$",
+    "^[/#!]([Ff]eedback) (.*)$"
+ },
+ run = run,
 }
-
 end
