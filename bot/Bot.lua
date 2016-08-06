@@ -218,6 +218,7 @@ function create_config( )
     "arabic_lock",
     "banhammer",
     "broadcast",
+    "charge",
     "dlban",
     "echo",
     "feedback",
@@ -266,6 +267,7 @@ function create_config( )
     "textTOgif",
     "time",
     "topusers",
+    "warn",
     "whitelist",
     "write"
     },
