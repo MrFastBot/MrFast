@@ -236,6 +236,7 @@ function create_config( )
     "kickme",
     "leave_ban",
     "linkpv",
+    "lock_cmd",
     "lock_emoji",
     "lock_english",
     "lock_fosh",
