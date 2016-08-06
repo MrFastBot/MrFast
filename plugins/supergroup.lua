@@ -1033,7 +1033,7 @@ function show_supergroup_settingsmod(msg, target)
   local gp_type = data[tostring(msg.to.id)]['group_type']
   
   local settings = data[tostring(target)]['settings']
-  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Switch Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️9.5.3\n‼️Sweether‼️\n@SweetherNews"                                       
+  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Switch Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥UltronTG∥∑∥\nTelegram.me/UtronTM"                                             
   return text
 end
 
@@ -1568,7 +1568,7 @@ end
 --Run function
 local function run(msg, matches)
 	if msg.to.type == 'chat' then
-		if matches[1] == 'tosuper' then
+		if matches[1] == 'up chat' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -2628,7 +2628,7 @@ local function run(msg, matches)
 		end
 
 		if matches[1] == 'help' and not is_owner(msg) then
-			text = "Join to @SweetherNews channel for view help text."
+			text = "Join to @UltronTM For View Help Text!"
 			reply_msg(msg.id, text, ok_cb, false)
 		elseif matches[1] == 'help' and is_owner(msg) then
 			local name_log = user_print_name(msg.from)
@@ -2708,7 +2708,7 @@ return {
 	"^[#!/]([Bb]lock)",
 	    "^[#!/]([Kk]ick) (.*)",
 	"^[#!/]([Kk]ick)",
-	"^[#!/]([Tt]osuper)$",
+	"^[#!/]([Uu]p chat)$",
 	"^[#!/]([Ii][Dd]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
 	"^[#!/]([Nn]ewlink)$",
