@@ -274,11 +274,11 @@ function create_config( )
     },
     sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[SweetherBot v 9.5.3
+    about_text = [[UltronTG v 1.1
     
 My Team:
-@SweetherBotAdmin [Developer]
-@SweetherAdmin[Developer]
+@i_liked [Developer]
+@MrDear [Developer]
 
 Our channels
 Telegram.me/SweetherNews [persian]
