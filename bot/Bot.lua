@@ -249,6 +249,7 @@ function create_config( )
     "me",
     "me2",
     "msg_checks",
+    "muteall",
     "nerkh",
     "onservice",
     "owners",
@@ -264,7 +265,6 @@ function create_config( )
     "show",
     "stats",
     "supergroup",
-    "support",
     "textTOgif",
     "time",
     "topusers",
@@ -281,7 +281,7 @@ My Team:
 @MrDear [Developer]
 
 Our channels
-Telegram.me/SweetherNews [persian]
+Telegram.me/UltronTM [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -519,6 +519,8 @@ This command will send text to [group_id]
 ❕موت کردن [all|audio|gifs|photo|video|service] 
 ❗️/unmute [all|audio|gifs|photo|video|service] 
 ❕با صدا کردن [all|audio|gifs|photo|video|service] 
+❗/muteall [Time|minute]
+❕موت ال با دقیقه
 ❗️/setflood [number] 
 ❕تنظیم مقدار حساسیت اسپم
 ❗️/settings
