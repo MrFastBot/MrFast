@@ -274,6 +274,7 @@ function create_config( )
     "topusers",
     "tosticker",
     "tovoice",
+    "updater",
     "warn",
     "whitelist",
     "write"
