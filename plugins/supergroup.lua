@@ -2487,7 +2487,7 @@ local function run(msg, matches)
 					return "Mute "..msg_type.." is already on"
 				end
 			end
-			if matches[2] == 'all' then
+			if matches[2] == '' then
 			local msg_type = 'All'
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
@@ -2560,7 +2560,7 @@ local function run(msg, matches)
 					return "Mute text is already off"
 				end
 			end
-			if matches[2] == 'all' then
+			if matches[2] == '' then
 			local msg_type = 'All'
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
