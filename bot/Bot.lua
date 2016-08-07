@@ -218,6 +218,7 @@ function create_config( )
     "arabic_lock",
     "banhammer",
     "broadcast",
+    "calc",
     "channel",
     "charge",
     "dlban",
@@ -266,16 +267,20 @@ function create_config( )
     "show",
     "stats",
     "supergroup",
+    "support",
     "textTOgif",
     "time",
+    "tophoto",
     "topusers",
+    "tosticker",
+    "tovoice",
     "warn",
     "whitelist",
     "write"
     },
     sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[UltronTG v 1.1
+    about_text = [[UltronTG v 1.6
     
 My Team:
 @i_liked [Developer]
@@ -284,184 +289,9 @@ My Team:
 Our channels
 Telegram.me/UltronTM [persian]
 ]],
-    help_text_realm = [[
-Realm Commands:
-
-!creategroup [Name]
-Create agroup
-
-!createrealm [Name]
-Create a realm
-
-!setname [Name]
-Set realm name
-
-!setabout [group|sgroup] [GroupID] [Text]
-Set a group's about text
-
-!setrules [GroupID] [Text]
-Set a group's rules
-
-!lock [GroupID] [setting]
-Lock a group's setting
-
-!unlock [GroupID] [setting]
-Unock a group's setting
-
-!settings [group|sgroup] [GroupID]
-Set settings for GroupID
-
-!wholist
-Get a list of members in group/realm
-
-!who
-Get a file of members in group/realm
-
-!type
-Get group type
-
-!kill chat [GroupID]
-Kick all memebers and delete group
-
-!kill realm [RealmID]
-Kick all members and delete realm
-
-!addadmin [id|username]
-Promote an admin by id OR username *Sudo only
-
-!removeadmin [id|username]
-Demote an admin by id OR username *Sudo only
-
-!list groups
-Get a list of all groups
-
-!list realms
-Get a list of all realms
-
-!support
-Promote user to support
-
-!-support
-Demote user from support
-
-!log
-Get a logfile of current group or realm
-
-!broadcast [text]
-!broadcast Hello !
-Send text to all groups
-Only sudo users can run this command
-
-!bc [group_id] [text]
-!bc 123456789 Hello !
-This command will send text to [group_id]
-
-
-**You can use "#", "!", or "/" to begin all commands
-
-
-*Only admins and sudo can add bots in group
-
-
-*Only admins and sudo can use kick,ban,unban,newlink,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-*Only admins and sudo can use res, setowner, commands
+    help_text_realm = [[Hmmmmm!
 ]],
-    help_text = [[‼️دستورات سوپرگروه:
-
-❗️/info
-❕دریافت اطلاعات شما
-❗️/admins
-❕دریافت لیست مدیرها
-❗️/owner 
-❕نمایش مالک گروه
-❗️/modlist
-❕نمایش لیست پروموته ها
-❗️/bots
-❕لیست ربات های گروه
-❗️/who
-❕دریافت لیست اعضای گروه
-❗️/block
-❕اخراج کاربر از گروه
-❗️/kick
-❕اخراج کاربر از گروه
-❗️/ban 
-❕بن کردن کاربر از گروه
-❗️/unban
-❕ان بن کردن کاربر بن شده
-❗️/id
-❕دریافت ایدی شما
-❗️/kickme
-❕درخواست اخراج شما
-❗️/promote 
-❕ترفیع مقام یک فرد به مدیریت
-❗️/demote
-❕عزل مقام یک فر به کاربر ساده
-❗️/setname [Group Name] 
-❕تنظیم نام گروه
-❗️/setphoto
-❕تنظیم عکس گروه
-❗️/setrules [Text] 
-❕تنظیم قوانین گروه
-❗️/setabout [Text] 
-❕تنظیم توضیحات گروه
-❗️/newlink
-❕ساخت لینک جدید گروه
-❗️/setlink
-❕تنظیم لینک جدید گروه
-❗️/link
-❕دریافت لینک گروه
-❗️/rules
-❕دریافت قوانین گروه
-❗️/about
-❕دریافت توضیحات گروه
-❗️/lock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator] 
-❕قفل کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
-❗️/unlock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
-❕باز کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
-❗️/mute [all|audio|gifs|photo|video|service] 
-❕موت کردن [all|audio|gifs|photo|video|service] 
-❗️/unmute [all|audio|gifs|photo|video|service] 
-❕با صدا کردن [all|audio|gifs|photo|video|service] 
-❗️/setflood [number] 
-❕تنظیم مقدار حساسیت اسپم
-❗️/settings
-❕نمایش تنظیمات گروه
-❗️/muteslist
-❕نمایش لیست موت گروه
-❗️/silent [username] 
-❕موت کردن کاربر در گروه
-❗️/banlist
-❕نمایش کاربران مسدود گروه
-❗️/clean [rules|about|modlist|silentlist|filterlist] 
-❕پاک کردن [rules|about|modlist|silentlist|filterlist]
-❗️/filter [text] 
-❕فیلتر کردن کلمه
-❗️/unfilter [text] 
-❕در کلمه از فیلتر
-❗️/filterlist
-❕لیست کلمات فیلتر گروه
-❗️/echo [Text] 
-❕گفتن کلمه شما
-❗️/invite [username] 
-❕دعوت کردن فرد به گروه
-❗️/me
-❕نمایش مقام و اطلاعات شما 
-❗️/nerkh
-❕نمایش نرخ گروخ با ربات Sweether
-❗️ping
-❕پونگ!
-❗️/time
-❕نمایش ساعت 
-❗️/gif [Text] 
-❕ساخت گیف کلمه شما
-❗️/image [Text] 
-❕ساخت عکس کلمه شما
-❗️/res [username] 
-❕نمایش نام و ایدی کاربر
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖
-⁉️توجه↙️
-شما میتوانید قبل هر دستور از "!"،"#"و"/" استفاده کنید.
+    help_text = [[Hmmmmmm!
 ]],
 	help_text_super =[[
 ‼SuperGroup Commands⤵️
@@ -576,6 +406,16 @@ This command will send text to [group_id]
 ❕کوتاه کردن لینک
 ❗️/charge
 ❕نمایش مقدار شارژ باقی مانده گروه 
+❗/calc [num*num]
+❕انجام عملیات ریاضی
+❗/support
+❕عضویت در گروه ساپورت
+❗/tophoto
+❕تبدیل استیکر به عکس
+❗/tosticker
+❕تبدیل عکس به استیکر
+❗/voice [Text]
+❕تبدیل متن به ویس
 ❗️/res [username] 
 ❕نمایش نام و ایدی کاربر
 ➖➖➖➖➖➖➖➖➖➖➖
