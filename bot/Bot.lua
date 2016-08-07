@@ -219,7 +219,6 @@ function create_config( )
     "banhammer",
     "broadcast",
     "calc",
-    "channel",
     "charge",
     "dlban",
     "echo",
@@ -270,8 +269,6 @@ function create_config( )
     "support",
     "textTOgif",
     "time",
-    "tophoto",
-    "topusers",
     "tosticker",
     "tovoice",
     "updater",
@@ -281,7 +278,7 @@ function create_config( )
     },
     sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[UltronTG v 1.6
+    about_text = [[UltronTG v 1.7
     
 My Team:
 @i_liked [Developer]
@@ -377,8 +374,6 @@ Telegram.me/UltronTM [persian]
 ❕دعوت کردن فرد به گروه
 ❗️/feedback [Text] 
 ❕ارسال پیام به پشتیبانی
-❗️/top users
-❕نمایش ۳ کاربر پر فعال روز
 ❗️/warn [id|username|repy] 
 ❕اخطار دادن به کاربر
 ❗️/unwarn [id|username|reply] 
@@ -392,7 +387,7 @@ Telegram.me/UltronTM [persian]
 ❗️/me
 ❕نمایش مقام و اطلاعات شما 
 ❗️/nerkh
-❕نمایش نرخ گروخ با ربات Sweether
+❕نمایش نرخ گروخ با ربات UltronTG
 ❗️ping
 ❕پونگ!
 ❗️/time
@@ -411,10 +406,6 @@ Telegram.me/UltronTM [persian]
 ❕انجام عملیات ریاضی
 ❗/support
 ❕عضویت در گروه ساپورت
-❗/tophoto
-❕تبدیل استیکر به عکس
-❗/tosticker
-❕تبدیل عکس به استیکر
 ❗/voice [Text]
 ❕تبدیل متن به ویس
 ❗️/res [username] 
