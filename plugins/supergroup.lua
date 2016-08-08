@@ -1568,7 +1568,7 @@ end
 --Run function
 local function run(msg, matches)
 	if msg.to.type == 'chat' then
-		if matches[1] == 'up chat' then
+		if matches[1] == 'upchat' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -2708,7 +2708,7 @@ return {
 	"^[#!/]([Bb]lock)",
 	    "^[#!/]([Kk]ick) (.*)",
 	"^[#!/]([Kk]ick)",
-	"^[#!/]([Uu]p chat)$",
+	"^[#!/]([Uu]pchat)$",
 	"^[#!/]([Ii][Dd]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
 	"^[#!/]([Nn]ewlink)$",
