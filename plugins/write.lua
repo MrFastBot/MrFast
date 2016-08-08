@@ -180,13 +180,13 @@ local function run(msg, matches)
 
 		table.insert(result, text)
 	end
-	local result_text = "➖➖➖➖➖➖➖➖➖➖\nFirst Text ['..matches[2]..]\nDesigned with ['..tostrig(#fonts)..'] Fonts.\n➖➖➖➖➖➖➖➖➖➖]"
+	local result_text = "➖➖➖➖➖➖➖➖➖➖\nFirst Text ['..matches[2]..']\nDesigned with ['..tostrig(#fonts)..'] Fonts.\n➖➖➖➖➖➖➖➖➖➖\n"
 	a=0
 	for v=1,#result do
 		a=a+1
 		result_text = result_text..a.."- "..result[a].."\n\n"
 	end
-	return result_text.."➖➖➖➖➖➖➖➖➖➖\n🔥Sweether Bot🔥\n➖➖➖➖➖➖➖➖➖➖"
+	return result_text.."➖➖➖➖➖➖➖➖➖➖\n🔥UltronTG🔥\n➖➖➖➖➖➖➖➖➖➖"
 end
 
 return {
