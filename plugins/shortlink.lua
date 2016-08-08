@@ -6,7 +6,7 @@ local function run(msg, matches)
   if jdat.message then
     return '➖➖➖➖➖➖➖➖➖➖\nYour link\n➖➖➖➖➖➖➖➖➖➖'..jdat.message..'➖➖➖➖➖➖➖➖➖➖'
   else
-    return "➖➖➖➖➖➖➖➖➖➖\nYour link\n➖➖➖➖➖➖➖➖➖➖\n'..jdat.message..'\n➖➖➖➖➖➖➖➖➖➖\nShorted link➖➖➖➖➖➖➖➖➖➖\n"..jdat.data.url.."\n➖➖➖➖➖➖➖➖➖➖\n🔥UltronTG🔥"
+    return "\n➖➖➖➖➖➖➖➖➖➖\nShorted link\n➖➖➖➖➖➖➖➖➖➖\n"..jdat.data.url.."\n➖➖➖➖➖➖➖➖➖➖\n🔥UltronTG🔥"
     end
   end
 
