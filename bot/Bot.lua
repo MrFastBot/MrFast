@@ -269,7 +269,6 @@ function create_config( )
     "support",
     "textTOgif",
     "time",
-    "tosticker",
     "tovoice",
     "updater",
     "warn",
