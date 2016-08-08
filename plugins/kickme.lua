@@ -2,7 +2,7 @@
 if matches[1] == 'kickme' then
 local hash = 'kick:'..msg.to.id..':'..msg.from.id
      redis:set(hash, "waite")
-      return "در خواست اخراج شما ارسال شد\nبرای قطعی سازی↙️\n\nyes = kick\nno = not kick"
+      return "در خواست اخراج شما ارسال شد\nبرای قطعی سازی↙️\n\n/yes = kick\n/no = not kick"
     end
 
     if msg.text then
@@ -26,9 +26,9 @@ local hash = 'kick:'..msg.to.id..':'..msg.from.id
 
 return {
   patterns = {
-  "^[!#/]kickme",
-  "^[!#/]yes$",
-  "^[!#/]no$"
+  "^([!#/]kickme)",
+  "^([!#/]yes)$",
+  "^([!#/]no)$"
   },
   run = run,
 }
