@@ -1576,7 +1576,7 @@ local function run(msg, matches)
 			chat_upgrade(receiver, ok_cb, false)
 		end
 	elseif msg.to.type == 'channel'then
-		if matches[1] == 'tosuper' then
+		if matches[1] == 'upchat' then
 			if not is_admin1(msg) then
 				return
 			end
