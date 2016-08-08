@@ -15,7 +15,7 @@
 	patterns = {
 	"^بگو +(.+)$",
 	"^[Ee]cho +(.+)$",
-        "^[!#/]([Ee]cho +(.+)$",
+        "^[!#/]([Ee]cho) +(.+)$",
 	},
 	run = run,
 	moderated = true
