@@ -369,8 +369,6 @@ Telegram.me/UltronTM [persian]
 ❕لیست کلمات فیلتر گروه
 ❗️/echo [Text] 
 ❕گفتن کلمه شما
-❗️/invite [username] 
-❕دعوت کردن فرد به گروه
 ❗️/feedback [Text] 
 ❕ارسال پیام به پشتیبانی
 ❗️/warn [id|username|repy] 
@@ -387,8 +385,6 @@ Telegram.me/UltronTM [persian]
 ❕نمایش مقام و اطلاعات شما 
 ❗️/nerkh
 ❕نمایش نرخ گروخ با ربات UltronTG
-❗️ping
-❕پونگ!
 ❗️/time
 ❕نمایش ساعت 
 ❗️/gif [Text] 
