@@ -180,7 +180,7 @@ local function run(msg, matches)
 
 		table.insert(result, text)
 	end
-	local result_text = "➖➖➖➖➖➖➖➖➖➖\nFirst Text ["..matches[2].."]\nDesigned with ["..tostrig(#fonts).."] Fonts.\n➖➖➖➖➖➖➖➖➖➖\n"
+	local result_text = "➖➖➖➖➖➖➖➖➖➖\nFirst Text "..matches[2].."\nDesigned with "..tostrig(#fonts).." Fonts.\n➖➖➖➖➖➖➖➖➖➖\n"
 	a=0
 	for v=1,#result do
 		a=a+1
