@@ -14,9 +14,8 @@
 	usage = "بگو (message) : reply message",
 	patterns = {
 	"^بگو +(.+)$",
-	"^Echo +(.+)$",
-	"^echo +(.+)$",
-
+	"^[Ee]cho +(.+)$",
+        "^[!#/]([Ee]cho +(.+)$",
 	},
 	run = run,
 	moderated = true
