@@ -67,8 +67,9 @@ local chat_id = msg.to.id
 end
   return {
     patterns = {
-      "^[!/#](me)$",
-      "^me$"
+      "^[!/#]([Mm]e)$",
+      "^me$"و
+      "^(من)$"
     },
     run = run
   }
