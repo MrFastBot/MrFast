@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been #added!\n And bot  #started working in SuperGroup!'
+	  local text = 'SuperGroup has been #added!\n And bot #started working in SuperGroup!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -149,7 +149,7 @@ end
 --Get and output list of kicked users for supergroup
 local function callback_kicked(cb_extra, success, result)
 --vardump(result)
-local text = "#Kicked Members for SuperGroup "..cb_extra.receiver.."\n\n"
+local text = "#Kicked Members for #SuperGroup "..cb_extra.receiver.."\n\n"
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -211,7 +211,7 @@ local function lock_group_all(msg, data, target)
   else
     data[tostring(target)]['settings']['all'] = '🔐'
     save_data(_config.moderation.data, data)
-    return '#All settinds has been  #locked\n And #members should they do in #SuperGroup!'
+    return '#All settinds has been #locked\n And #members should they do in #SuperGroup!'
   end
 end
 
