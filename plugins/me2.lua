@@ -68,7 +68,7 @@ end
   return {
     patterns = {
       "^[!/#]([Mm]e)$",
-      "^me$"و
+      "^[Mm]e$"و
       "^(من)$"
     },
     run = run
