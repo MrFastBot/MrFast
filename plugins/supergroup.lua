@@ -291,11 +291,11 @@ local function lock_group_operator(msg, data, target)
   end
   local group_operator_lock = data[tostring(target)]['settings']['operator']
   if group_operator_lock == 'yes' then
-    return 'operator is already locked'
+    return "#operator is already #locked\nAnd #members can't use the #operator!"
   else
     data[tostring(target)]['settings']['operator'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'operator has been locked'
+    return "#operator has been #locked\nAnd #members can't use the #operator!"
   end
 end
 
@@ -305,11 +305,11 @@ local function unlock_group_operator(msg, data, target)
   end
   local group_operator_lock = data[tostring(target)]['settings']['operator']
   if group_operator_lock == 'no' then
-    return 'operator is not locked'
+    return '#operator is not #locked\nAnd #members can use the #operator!'
   else
     data[tostring(target)]['settings']['operator'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'operator has been unlocked'
+    return '#operator has been #unlocked\nAnd #members can use the #operator!'
   end
 end
 
@@ -319,11 +319,11 @@ local function lock_group_reply(msg, data, target)
   end
   local group_reply_lock = data[tostring(target)]['settings']['reply']
   if group_reply_lock == 'yes' then
-    return 'reply is already locked'
+    return "#reply is already #locked\nAnd #members can't #reply to another message!"
   else
     data[tostring(target)]['settings']['reply'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'reply has been locked'
+    return "#reply has been #locked\nAnd #members can't #reply to another message!"
   end
 end
 
@@ -333,11 +333,11 @@ local function unlock_group_reply(msg, data, target)
   end
   local group_reply_lock = data[tostring(target)]['settings']['reply']
   if group_reply_lock == 'no' then
-    return 'reply is not locked'
+    return '#reply is not #locked\nAnd #members can #reply to another message!'
   else
     data[tostring(target)]['settings']['reply'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'reply has been unlocked'
+    return '#reply has been #unlocked\nAnd #members can #reply to another message!'
   end
 end
 
@@ -347,11 +347,11 @@ local function lock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'yes' then
-    return 'username is already locked'
+    return "#username is already #locked\nAnd #members can't send #username in SuperGroup!"
   else
     data[tostring(target)]['settings']['username'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'username has been locked'
+    return "#username is already #locked\nAnd #members can't send #username in SuperGroup!"
   end
 end
 
@@ -361,11 +361,11 @@ local function unlock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'no' then
-    return 'username is not locked'
+    return '#username is not #locked\nAnd #members can send #username in SuperGroup!'
   else
     data[tostring(target)]['settings']['username'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'username has been unlocked'
+    return '#username has been #unlocked\nAnd #members can send #username in SuperGroup!'
   end
 end
 
@@ -375,11 +375,11 @@ local function lock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'yes' then
-    return 'media is already locked'
+    return "#media is already #locked\nAnd #members can't send #media in SuperGroup!"
   else
     data[tostring(target)]['settings']['media'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'media has been locked'
+    return "#media has been #locked\nAnd #members can't send #media in SuperGroup!"
   end
 end
 
@@ -389,11 +389,11 @@ local function unlock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'no' then
-    return 'media is not locked'
+    return '#media is not #locked\nAnd #members can send #media in SuperGroup!'
   else
     data[tostring(target)]['settings']['media'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'media has been unlocked'
+    return '#media has been #unlocked\nAnd #members can send #media in SuperGroup!'
   end
 end
 
@@ -403,11 +403,11 @@ local function lock_group_fosh(msg, data, target)
   end
   local group_fosh_lock = data[tostring(target)]['settings']['fosh']
   if group_fosh_lock == 'yes' then
-    return 'fosh is already locked'
+    return "#fosh is already #locked\nAnd #members can't send #fosh in SuperGroup!"
   else
     data[tostring(target)]['settings']['fosh'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'fosh has been locked'
+    return "#fosh has been #locked\nAnd #members can't send #fosh in SuperGroup!"
   end
 end
 
@@ -417,11 +417,11 @@ local function unlock_group_fosh(msg, data, target)
   end
   local group_fosh_lock = data[tostring(target)]['settings']['fosh']
   if group_fosh_lock == 'no' then
-    return 'fosh is not locked'
+    return '#fosh is not #locked\nAnd #members can send #fosh in SuperGroup!'
   else
     data[tostring(target)]['settings']['fosh'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'fosh has been unlocked'
+    return '#fosh has been #unlocked\nAnd #members can send #fosh in SuperGroup!'
   end
 end
 
@@ -431,11 +431,11 @@ local function lock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
   if group_join_lock == 'yes' then
-    return 'join is already locked'
+    return "#join is already #locked\nAnd #Users can't #join in SuperGroup!"
   else
     data[tostring(target)]['settings']['join'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'join has been locked'
+    return "#join has been #locked\nAnd #Users can't #join in SuperGroup!"
   end
 end
 
@@ -445,11 +445,11 @@ local function unlock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
   if group_join_lock == 'no' then
-    return 'join is not locked'
+    return '#join is not #locked\nAnd #Users can #join in SuperGroup!'
   else
     data[tostring(target)]['settings']['join'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'join has been unlocked'
+    return '#join has been #unlocked\nAnd #Users can #join in SuperGroup!'
   end
 end
 
