@@ -17,13 +17,13 @@ local function enable_channel(receiver)
 	end
 
 	if _config.disabled_channels[receiver] == nil then
-		return "Bot Is Not Off :)"
+		return "#Bot offlined\nAnd #stoped working in SuperGroup!"
 	end
 	
 	_config.disabled_channels[receiver] = false
 
 	save_config()
-	return "Bot Is On Now :D"
+	return "#Bot onllined\nAnd #started working in SuperGroup!"
 end
 
 local function disable_channel( receiver )
@@ -34,7 +34,7 @@ local function disable_channel( receiver )
 	_config.disabled_channels[receiver] = true
 
 	save_config()
-	return "Bot Is Off Now :/"
+	return "#Bot offlined\nAnd #stoped working in SuperGroup!"
 end
 
 local function pre_process(msg)
@@ -79,8 +79,11 @@ return {
 		"/channel enable: enable current channel",
 		"/channel disable: disable current channel" },
 	patterns = {
-		"^[!/][Bb]ot (on)",
-		"^[!/][Bb]ot (off)" }, 
+		"^[!/#][Bb]ot (on)",
+		"^[!/#][Bb]ot (off)",
+		"^[Bb][Oo][Tt] ([Oo][Nn])",
+		"^[Bb][Oo][Tt] ([Oo][Ff][Ff])"
+		}, 
 	run = run,
 	--privileged = true,
 	moderated = true,
