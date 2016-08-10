@@ -81,8 +81,8 @@ return {
 	patterns = {
 		"^[!/#][Bb]ot (on)",
 		"^[!/#][Bb]ot (off)",
-		"^[Bb][Oo][Tt] ([Oo][Nn])",
-		"^[Bb][Oo][Tt] ([Oo][Ff][Ff])"
+		"^[Bb]ot (on)",
+		"^[Bb]ot (off)"
 		}, 
 	run = run,
 	--privileged = true,
