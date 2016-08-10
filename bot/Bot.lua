@@ -256,6 +256,7 @@ function create_config( )
     "muteall",
     "nerkh",
     "onservice",
+    "on-off",
     "owners",
     "ping",
     "plugins",
@@ -350,7 +351,7 @@ Telegram.me/UltronTM [persian]
 ❕موت کردن [all|audio|gifs|photo|video|service] 
 ❗️/unmute [all|audio|gifs|photo|video|service] 
 ❕با صدا کردن [all|audio|gifs|photo|video|service] 
-❗/muteall [Time|minute]
+❗/mute all [Time|minute]
 ❕موت ال با دقیقه
 ❗️/setflood [number] 
 ❕تنظیم مقدار حساسیت اسپم
@@ -370,9 +371,9 @@ Telegram.me/UltronTM [persian]
 ❕در کلمه از فیلتر
 ❗️/filterlist
 ❕لیست کلمات فیلتر گروه
-❗️/echo [Text] 
-❕گفتن کلمه شما
-❗️/feedback [Text] 
+❗️/clean deleted
+❕حذف اکانت های حذف شده گروه
+❗feedback [Text] 
 ❕ارسال پیام به پشتیبانی
 ❗️/warn [id|username|repy] 
 ❕اخطار دادن به کاربر
