@@ -279,7 +279,7 @@ function create_config( )
     "whitelist",
     "write"
     },
-    sudo_users = {239607076,214344324,96685303},--Sudo users
+    sudo_users = {239607076,214344324},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[UltronTG v 1.7
     
