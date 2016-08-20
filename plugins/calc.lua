@@ -4,7 +4,7 @@ local function mathjs(exp)
   local b,c = http.request(url)
   local text = nil
   if c == 200 then
- text = '➖➖➖➖➖➖➖➖➖➖\nAnswer⤵️\n➖➖➖➖➖➖➖➖➖➖\n'..b..'\n➖➖➖➖➖➖➖➖➖➖\n💢Ultron TG💢'
+ text = '➖➖➖➖➖➖➖➖➖➖\nAnswer⤵️\n➖➖➖➖➖➖➖➖➖➖\n'..b..'\n➖➖➖➖➖➖➖➖➖➖'
   
   elseif c == 400 then
     text = b
@@ -23,8 +23,8 @@ return {
   description = "Calculate math expressions with mathjs API",
   usage = "calc [expression]: evaluates the expression and sends the result.",
   patterns = {
-    "^[!#/][Cc]alc (.*)",
-    "^[Cc]alc (.*)"
+    "^[!#/][Cc][Aa][Ll][Cc] (.*)",
+    "^[Cc][Aa][Ll][Cc] (.*)"
   },
   run = run
 }
