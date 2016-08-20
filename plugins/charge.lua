@@ -64,8 +64,8 @@ function run(msg, matches)
 end
 return {
   patterns = {
-    "^[!/#](expire) (.*)$",
-	"^[!/#](charge)$",
+    "^[/!#]([Ee][Xx][Pp][Ii][Rr][Ee]) (.*)$",
+	"^[!/#]([Cc][Hh][Aa][Rr][Gg][Ee])$",
   },
   run = run,
   pre_process = pre_process
