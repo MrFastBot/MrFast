@@ -64,11 +64,11 @@ local function run(msg, matches)
 	if not is_momod(msg) then
 	return nil
 	end
-	if matches[1] == 'on' then and is_momod(msg) then
+	if matches[1]:lower() == 'on' and is_momod(msg) then
 		return enable_channel(receiver)
 	end
 	-- Disable a channel
-	if matches[1] == 'off' then and is_momod(msg) then
+	if matches[1]:lower() == 'off' and is_momod(msg) then
 		return disable_channel(receiver)
 	end
 end
@@ -79,10 +79,10 @@ return {
 		"/channel enable: enable current channel",
 		"/channel disable: disable current channel" },
 	patterns = {
-		"^[!/#][Bb]ot (on)",
-		"^[!/#][Bb]ot (off)",
-		"^[Bb]ot (on)",
-		"^[Bb]ot (off)"
+		"^[!/#][Bb][Oo][Tt] (.*)",
+		"^[!/#][Bb][Oo][Tt] (.*)",
+		"^[Bb][Oo][Tt] (.*)",
+		"^[Bb][Oo][Tt] (.*)"
 		}, 
 	run = run,
 	--privileged = true,
