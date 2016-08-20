@@ -21,7 +21,7 @@ channel_get_users(receiver, check_member_super_deleted,{receiver = receiver, msg
  end
  return {
        patterns = {
-    "^[/#!](clean deleted)$"
+    "^[/#!]([Cc][Ll][Ee][Aa][Nn][ ][Dd][Ee][Ll][Ee][Tt][Ee][Dd])$"
  },
 run = run,
 }
