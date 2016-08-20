@@ -3,7 +3,7 @@ if matches[1]:lower() == 'del' then
       if not is_sudo(msg) then
         return "Only By David"
       end
-if matches[2] == 'gban' then 
+if matches[2]:lower() == 'gban' then 
 local hash = 'gbanned'
     --[[    local data_cat = 'gbanlist'
         data[tostring(msg.to.id)][data_cat] = nil
@@ -11,7 +11,7 @@ local hash = 'gbanned'
 send_large_msg(get_receiver(msg), "Global Baned Users Has been Cleaned!")
 redis:del(hash)
      end
-if matches[2] == 'banl' and is_owner(msg) then
+if matches[2]:lower() == 'ban' and is_owner(msg) then
 local chat_id = msg.to.id
 local hash = 'banned:'..chat_id
       --[[  local data_cat = 'banlist'
@@ -25,7 +25,7 @@ end
 
 return {
   patterns = {
-  "[!/#]([Dd]el) (.*)$",
+  "[!/#]([Dd][Ee][Ll]) (.*)$",
   },
   run = Mosy
 }
