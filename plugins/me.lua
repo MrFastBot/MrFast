@@ -1,6 +1,6 @@
 do
 local function run(msg, matches)
-  if matches[1] == 'me' or 'من' then
+  if matches[1]:lower() == 'me' then
     if is_sudo(msg) then
       return reply_msg(msg.id," You Are |—>> 😏Sudo😏 ",ok_cb,false)
     elseif is_admin1(msg) then
@@ -17,9 +17,8 @@ end
 
 return {
   patterns = {
- "^(من)$", 
-"^([Mm]e)$", 
-"^[#/!]([Mm]e)$"
+"^[Mm][Ee]", 
+"^[#/!]([Mm][Ee])$"
     },
   run = run
 }
