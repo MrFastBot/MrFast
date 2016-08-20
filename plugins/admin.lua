@@ -165,70 +165,70 @@ local function run(msg,matches)
       		end
       	end
     end
-    if matches[1] == "setbotphoto" then
+    if matches[1]:lower() == "setbotphoto" then
     	redis:set("bot:photo", "waiting")
     	return 'Please send me bot photo now'
     end
-    if matches[1] == "markread" then
-    	if matches[2] == "on" then
+    if matches[1]:lower() == "markread" then
+    	if matches[2]:lower() == "on" then
     		redis:set("bot:markread", "on")
     		return "Mark read > on"
     	end
-    	if matches[2] == "off" then
+    	if matches[2]:lower() == "off" then
     		redis:del("bot:markread")
     		return "Mark read > off"
     	end
     	return
     end
-    if matches[1] == "pm" then
+    if matches[1]:lower() == "pm" then
     	local text = "Message From "..(msg.from.username or msg.from.last_name).."\n\nMessage : "..matches[3]
     	send_large_msg("user#id"..matches[2],text)
     	return "Message has been sent"
     end
     
-    if matches[1] == "pmblock" then
+    if matches[1]:lower() == "pmblock" then
     	if is_admin2(matches[2]) then
     		return "You can't block admins"
     	end
     	block_user("user#id"..matches[2],ok_cb,false)
     	return "User blocked"
     end
-    if matches[1] == "pmunblock" then
+    if matches[1]:lower() == "pmunblock" then
     	unblock_user("user#id"..matches[2],ok_cb,false)
     	return "User unblocked"
     end
-    if matches[1] == "import" then--join by group link
+    if matches[1]:lower() == "import" then--join by group link
     	local hash = parsed_url(matches[2])
     	import_chat_link(hash,ok_cb,false)
     end
-    if matches[1] == "contactlist" then
+    if matches[1]:lower() == "contactlist" then
 	    if not is_sudo(msg) then-- Sudo only
     		return
     	end
       get_contact_list(get_contact_list_callback, {target = msg.from.id})
       return "I've sent contact list with both json and text format to your private"
     end
-    if matches[1] == "delcontact" then
+    if matches[1]:lower() == "delcontact" then
 	    if not is_sudo(msg) then-- Sudo only
     		return
     	end
       del_contact("user#id"..matches[2],ok_cb,false)
       return "User "..matches[2].." removed from contact list"
     end
-    if matches[1] == "addcontact" and is_sudo(msg) then
+    if matches[1]:lower() == "addcontact" and is_sudo(msg) then
     phone = matches[2]
     first_name = matches[3]
     last_name = matches[4]
     add_contact(phone, first_name, last_name, ok_cb, false)
    return "User With Phone +"..matches[2].." has been added"
 end
- if matches[1] == "sendcontact" and is_sudo(msg) then
+ if matches[1]:lower() == "sendcontact" and is_sudo(msg) then
     phone = matches[2]
     first_name = matches[3]
     last_name = matches[4]
     send_contact(get_receiver(msg), phone, first_name, last_name, ok_cb, false)
 end
- if matches[1] == "mycontact" and is_sudo(msg) then
+ if matches[1]:lower() == "mycontact" and is_sudo(msg) then
 	if not msg.from.phone then
 		return "I must Have Your Phone Number!"
     end
@@ -238,14 +238,14 @@ end
     send_contact(get_receiver(msg), phone, first_name, last_name, ok_cb, false)
 end
 
-    if matches[1] == "dialoglist" then
+    if matches[1]:lower() == "dialoglist" then
       get_dialog_list(get_dialog_list_callback, {target = msg.from.id})
       return "I've sent a group dialog list with both json and text format to your private messages"
     end
-    if matches[1] == "whois" then
+    if matches[1]:lower() == "whois" then
       user_info("user#id"..matches[2],user_info_callback,{msg=msg})
     end
-    if matches[1] == "sync_gbans" then
+    if matches[1]:lower() == "sync_gbans" then
     	if not is_sudo(msg) then-- Sudo only
     		return
     	end
@@ -258,7 +258,7 @@ end
       		print(k, v.." Globally banned")
     	end
     end
-	if matches[1] == 'reload' then
+	if matches[1]:lower() == 'reload' then
 		receiver = get_receiver(msg)
 		reload_plugins(true)
 		post_msg(receiver, "Reloaded!", ok_cb, false)
@@ -269,7 +269,7 @@ end
 		local text = serpent.block(msg, {comment=false})
 		send_large_msg("channel#id"..msg.to.id, text)
 	end]]
-	if matches[1] == 'updateid' then
+	if matches[1]:lower() == 'updateid' then
 		local data = load_data(_config.moderation.data)
 		local long_id = data[tostring(msg.to.id)]['long_id']
 		if not long_id then
@@ -278,7 +278,7 @@ end
 			return "Updated ID"
 		end
 	end
-	if matches[1] == 'addlog' and not matches[2] then
+	if matches[1]:lower() == 'addlog' and not matches[2] then
 		if is_log_group(msg) then
 			return "Already a Log_SuperGroup"
 		end
@@ -286,7 +286,7 @@ end
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] added Log_SuperGroup")
 		logadd(msg)
 	end
-	if matches[1] == 'remlog' and not matches[2] then
+	if matches[1]:lower() == 'remlog' and not matches[2] then
 		if not is_log_group(msg) then
 			return "Not a Log_SuperGroup"
 		end
@@ -306,24 +306,24 @@ end
 
 return {
   patterns = {
-	"^[#!/](pm) (%d+) (.*)$",
-	"^[#!/](import) (.*)$",
-	"^[#!/](pmunblock) (%d+)$",
-	"^[#!/](pmblock) (%d+)$",
-	"^[#!/](markread) (on)$",
-	"^[#!/](markread) (off)$",
-	"^[#!/](setbotphoto)$",
-	"^[#!/](contactlist)$",
-	"^[#!/](dialoglist)$",
-	"^[#!/](delcontact) (%d+)$",
-	"^[#!/](addcontact) (.*) (.*) (.*)$", 
-	"^[#!/](sendcontact) (.*) (.*) (.*)$",
-	"^[#!/](mycontact)$",
-	"^reload$",
-	"^[#/!](updateid)$",
-	"^[#/!](sync_gbans)$",
-	"^[#/!](addlog)$",
-	"^[#/!](remlog)$",
+	"^[#!/](.*) (%d+) (.*)$",
+	"^[#!/](.*) (.*)$",
+	"^[#!/](.*) (%d+)$",
+	"^[#!/](.*) (%d+)$",
+	"^[#!/](.*) (.*)$",
+	"^[#!/](.*) (.*)$",
+	"^[#!/](.*)$",
+	"^[#!/](.*)$",
+	"^[#!/](.*)$",
+	"^[#!/](.*) (%d+)$",
+	"^[#!/](.*) (.*) (.*) (.*)$", 
+	"^[#!/](.*) (.*) (.*) (.*)$",
+	"^[#!/](.*)$",
+	"^(.*)$",
+	"^[#/!](.*)$",
+	"^[#/!](.*)$",
+	"^[#/!](.*)$",
+	"^[#/!](.*)$",
 	"%[(photo)%]",
   },
   run = run,
