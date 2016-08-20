@@ -41,7 +41,7 @@ local function pre_process(msg)
 	local receiver = get_receiver(msg)
 	
 	-- If sender is moderator then re-enable the channel
-	if is_sudo(msg) then
+	if is_momod(msg) then
 	  if msg.text == "/bot on" or msg.text == "/Bot on" or msg.text == "!bot on" or msg.text == "!Bot on" then
 	  
 	    enable_channel(receiver)
@@ -61,14 +61,14 @@ local function run(msg, matches)
 	
 	local hash = 'usecommands:'..msg.from.id..':'..msg.to.id
     redis:incr(hash)
-	if not is_sudo(msg) then
+	if not is_momod(msg) then
 	return nil
 	end
-	if matches[1] == 'on' then
+	if matches[1] == 'on' then and is_momod(msg) then
 		return enable_channel(receiver)
 	end
 	-- Disable a channel
-	if matches[1] == 'off' then
+	if matches[1] == 'off' then and is_momod(msg) then
 		return disable_channel(receiver)
 	end
 end
