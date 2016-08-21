@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been #added!\n And bot #started working in SuperGroup!'
+	  local text = 'SuperGroup has been added'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -63,7 +63,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been #removed!\nAnd bot #stopped working in SuperGroup!'
+	  local text = 'SuperGroup has been removed'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -120,7 +120,7 @@ end
 
 --Get and output members of supergroup
 local function callback_who(cb_extra, success, result)
-local text = "#Members for "..cb_extra.receiver
+local text = "Members for "..cb_extra.receiver
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -149,7 +149,7 @@ end
 --Get and output list of kicked users for supergroup
 local function callback_kicked(cb_extra, success, result)
 --vardump(result)
-local text = "#Kicked Members for #SuperGroup "..cb_extra.receiver.."\n\n"
+local text = "Kicked Members for SuperGroup "..cb_extra.receiver.."\n\n"
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -179,11 +179,11 @@ local function lock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    return "#Link posting is already #locked\nAnd #members Can't send link in #SuperGroup"
+    return "Link posting is already locked"
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#Link posting has been #locked\nAnd #members can't send link in #SuperGroup!"
+    return "Link posting has been locked"
   end
 end
 
@@ -193,11 +193,11 @@ local function unlock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'no' then
-    return '#Link posting is not #locked\nAnd #members can send link in #SuperGroup!'
+    return 'Link posting is not locked'
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#Link posting has been #unlocked\nAnd #members can send link in #SuperGroup!'
+    return 'Link posting has been unlocked'
   end
 end
 
@@ -207,11 +207,11 @@ local function lock_group_all(msg, data, target)
   end
   local group_all_lock = data[tostring(target)]['settings']['all']
   if group_all_lock == 'yes' then
-    return '#All settings is already #locked\n And #members should they do in #SuperGroup!'
+    return 'All settings is already locked'
   else
     data[tostring(target)]['settings']['all'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#All settinds has been #locked\n And #members should they do in #SuperGroup!'
+    return 'All settinds has been locked'
   end
 end
 
@@ -221,11 +221,11 @@ local function unlock_group_all(msg, data, target)
   end
   local group_all_lock = data[tostring(target)]['settings']['all']
   if group_all_lock == 'no' then
-    return '#All settings is not #locked\n And #members are free to do anything in #SuperGroup!'
+    return 'All settings is not locked'
   else
     data[tostring(target)]['settings']['all'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#All settings has been #unlocked\n And #members are free to do anything in #SuperGroup!'
+    return 'All settings has been unlocked'
   end
 end
 
@@ -235,11 +235,11 @@ local function lock_group_etehad(msg, data, target)
   end
   local group_etehad_lock = data[tostring(target)]['settings']['etehad']
   if group_etehad_lock == 'yes' then
-    return "#Etehad setting is already #locked\nAnd #members can't #hurt jop!"
+    return "Etehad setting is already locked"
   else
     data[tostring(target)]['settings']['etehad'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#Etehad setting has been #locked\nAnd #members can't #hurt jop!"
+    return "Etehad setting has been locked"
   end
 end
 
@@ -249,11 +249,11 @@ local function unlock_group_etehad(msg, data, target)
   end
   local group_etehad_lock = data[tostring(target)]['settings']['etehad']
   if group_etehad_lock == 'no' then
-    return '#Etehad setting is not #locked\nAnd #members can #hurt jop!'
+    return 'Etehad setting is not locked'
   else
     data[tostring(target)]['settings']['etehad'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#Etehad setting has been #unlocked\nAnd #members can #hurt jop!'
+    return 'Etehad setting has been unlocked'
   end
 end
 
@@ -263,11 +263,11 @@ local function lock_group_leave(msg, data, target)
   end
   local group_leave_lock = data[tostring(target)]['settings']['leave']
   if group_leave_lock == 'yes' then
-    return '#leave is already #locked\nAnd #members will be #left if they #ban!'
+    return 'leave is already locked'
   else
     data[tostring(target)]['settings']['leave'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '#leave has been #locked\nAnd #members will be #left if they #ban!'
+    return 'leave has been locked'
   end
 end
 
@@ -277,11 +277,11 @@ local function unlock_group_leave(msg, data, target)
   end
   local group_leave_lock = data[tostring(target)]['settings']['leave']
   if group_leave_lock == 'no' then
-    return '#leave is not #locked\nAnd #members will not be #left if they #ban!'
+    return 'leave is not locked'
   else
     data[tostring(target)]['settings']['leave'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#leave has been #locked\nAnd #members will not be #left if they #ban!'
+    return 'leave has been locked'
   end
 end
 
@@ -291,11 +291,11 @@ local function lock_group_operator(msg, data, target)
   end
   local group_operator_lock = data[tostring(target)]['settings']['operator']
   if group_operator_lock == 'yes' then
-    return "#operator is already #locked\nAnd #members can't use the #operator!"
+    return "operator is already locked"
   else
     data[tostring(target)]['settings']['operator'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#operator has been #locked\nAnd #members can't use the #operator!"
+    return "operator has been locked"
   end
 end
 
@@ -305,11 +305,11 @@ local function unlock_group_operator(msg, data, target)
   end
   local group_operator_lock = data[tostring(target)]['settings']['operator']
   if group_operator_lock == 'no' then
-    return '#operator is not #locked\nAnd #members can use the #operator!'
+    return 'operator is not locked'
   else
     data[tostring(target)]['settings']['operator'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#operator has been #unlocked\nAnd #members can use the #operator!'
+    return 'operator has been unlocked'
   end
 end
 
@@ -319,11 +319,11 @@ local function lock_group_reply(msg, data, target)
   end
   local group_reply_lock = data[tostring(target)]['settings']['reply']
   if group_reply_lock == 'yes' then
-    return "#reply is already #locked\nAnd #members can't #reply to another message!"
+    return "reply is already locked"
   else
     data[tostring(target)]['settings']['reply'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#reply has been #locked\nAnd #members can't #reply to another message!"
+    return "reply has been locked"
   end
 end
 
@@ -333,11 +333,11 @@ local function unlock_group_reply(msg, data, target)
   end
   local group_reply_lock = data[tostring(target)]['settings']['reply']
   if group_reply_lock == 'no' then
-    return '#reply is not #locked\nAnd #members can #reply to another message!'
+    return 'reply is not locked'
   else
     data[tostring(target)]['settings']['reply'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#reply has been #unlocked\nAnd #members can #reply to another message!'
+    return 'reply has been unlocked'
   end
 end
 
@@ -347,11 +347,11 @@ local function lock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'yes' then
-    return "#username is already #locked\nAnd #members can't send #username in SuperGroup!"
+    return "username is already locked"
   else
     data[tostring(target)]['settings']['username'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#username is already #locked\nAnd #members can't send #username in SuperGroup!"
+    return "username is already locked"
   end
 end
 
@@ -361,11 +361,11 @@ local function unlock_group_username(msg, data, target)
   end
   local group_username_lock = data[tostring(target)]['settings']['username']
   if group_username_lock == 'no' then
-    return '#username is not #locked\nAnd #members can send #username in SuperGroup!'
+    return 'username is not locked'
   else
     data[tostring(target)]['settings']['username'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#username has been #unlocked\nAnd #members can send #username in SuperGroup!'
+    return 'username has been unlocked'
   end
 end
 
@@ -375,11 +375,11 @@ local function lock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'yes' then
-    return "#media is already #locked\nAnd #members can't send #media in SuperGroup!"
+    return "media is already locked"
   else
     data[tostring(target)]['settings']['media'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#media has been #locked\nAnd #members can't send #media in SuperGroup!"
+    return "media has been locked"
   end
 end
 
@@ -389,11 +389,11 @@ local function unlock_group_media(msg, data, target)
   end
   local group_media_lock = data[tostring(target)]['settings']['media']
   if group_media_lock == 'no' then
-    return '#media is not #locked\nAnd #members can send #media in SuperGroup!'
+    return 'media is not locked'
   else
     data[tostring(target)]['settings']['media'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#media has been #unlocked\nAnd #members can send #media in SuperGroup!'
+    return 'media has been unlocked'
   end
 end
 
@@ -403,11 +403,11 @@ local function lock_group_fosh(msg, data, target)
   end
   local group_fosh_lock = data[tostring(target)]['settings']['fosh']
   if group_fosh_lock == 'yes' then
-    return "#fosh is already #locked\nAnd #members can't send #fosh in SuperGroup!"
+    return "fosh is already locked"
   else
     data[tostring(target)]['settings']['fosh'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#fosh has been #locked\nAnd #members can't send #fosh in SuperGroup!"
+    return "fosh has been locked"
   end
 end
 
@@ -417,11 +417,11 @@ local function unlock_group_fosh(msg, data, target)
   end
   local group_fosh_lock = data[tostring(target)]['settings']['fosh']
   if group_fosh_lock == 'no' then
-    return '#fosh is not #locked\nAnd #members can send #fosh in SuperGroup!'
+    return 'fosh is not locked'
   else
     data[tostring(target)]['settings']['fosh'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#fosh has been #unlocked\nAnd #members can send #fosh in SuperGroup!'
+    return 'fosh has been unlocked'
   end
 end
 
@@ -431,11 +431,11 @@ local function lock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
   if group_join_lock == 'yes' then
-    return "#join is already #locked\nAnd #Users can't #join in SuperGroup!"
+    return "join is already locked"
   else
     data[tostring(target)]['settings']['join'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#join has been #locked\nAnd #Users can't #join in SuperGroup!"
+    return "join has been locked"
   end
 end
 
@@ -445,11 +445,11 @@ local function unlock_group_join(msg, data, target)
   end
   local group_join_lock = data[tostring(target)]['settings']['join']
   if group_join_lock == 'no' then
-    return '#join is not #locked\nAnd #Users can #join in SuperGroup!'
+    return 'join is not locked'
   else
     data[tostring(target)]['settings']['join'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#join has been #unlocked\nAnd #Users can #join in SuperGroup!'
+    return 'join has been unlocked'
   end
 end
 
@@ -459,11 +459,11 @@ local function lock_group_fwd(msg, data, target)
   end
   local group_fwd_lock = data[tostring(target)]['settings']['fwd']
   if group_fwd_lock == 'yes' then
-    return "#fwd is already #locked\nAnd #members can't #forward message to SuperGroup!"
+    return "fwd is already locked"
   else
     data[tostring(target)]['settings']['fwd'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#fwd has been #locked\nAnd #members can't #forward message to SuperGroup!"
+    return "fwd has been locked"
   end
 end
 
@@ -473,11 +473,11 @@ local function unlock_group_fwd(msg, data, target)
   end
   local group_fwd_lock = data[tostring(target)]['settings']['fwd']
   if group_fwd_lock == 'no' then
-    return '#fwd is not #locked\nAnd #members can #forward message to SuperGroup!'
+    return 'fwd is not locked'
   else
     data[tostring(target)]['settings']['fwd'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#fwd has been #unlocked\nAnd #members can #forward message to SuperGroup!'
+    return 'fwd has been unlocked'
   end
 end
 
@@ -487,11 +487,11 @@ local function lock_group_english(msg, data, target)
   end
   local group_english_lock = data[tostring(target)]['settings']['english']
   if group_english_lock == 'yes' then
-    return "#english is already #locked\nAnd #members can't talk #english!"
+    return "english is already locked"
   else
     data[tostring(target)]['settings']['english'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "#english has been #locked\nAnd #members can't talk #english!"
+    return "english has been locked"
   end
 end
 
@@ -501,11 +501,11 @@ local function unlock_group_english(msg, data, target)
   end
   local group_english_lock = data[tostring(target)]['settings']['english']
   if group_english_lock == 'no' then
-    return '#english is not #locked\nAnd #members can talk #english!'
+    return 'english is not locked'
   else
     data[tostring(target)]['settings']['english'] = 'no'
     save_data(_config.moderation.data, data)
-    return '#english has been #unlocked\nAnd #members can talk #english!'
+    return 'english has been unlocked'
   end
 end
 
@@ -1057,7 +1057,7 @@ local function promote_admin(receiver, member_username, user_id)
     return
   end
   if data[group]['moderators'][tostring(user_id)] then
-    return send_large_msg(receiver, member_username..' is already a #moderator.')
+    return send_large_msg(receiver, member_username..' is already a moderator.')
   end
   data[group]['moderators'][tostring(user_id)] = member_tag_username
   save_data(_config.moderation.data, data)
@@ -1070,7 +1070,7 @@ local function demote_admin(receiver, member_username, user_id)
     return
   end
   if not data[group]['moderators'][tostring(user_id)] then
-    return send_large_msg(receiver, member_tag_username..' is not a #moderator.')
+    return send_large_msg(receiver, member_tag_username..' is not a moderator.')
   end
   data[group]['moderators'][tostring(user_id)] = nil
   save_data(_config.moderation.data, data)
@@ -1081,14 +1081,14 @@ local function promote2(receiver, member_username, user_id)
   local group = string.gsub(receiver, 'channel#id', '')
   local member_tag_username = string.gsub(member_username, '@', '(at)')
   if not data[group] then
-    return send_large_msg(receiver, 'SuperGroup is not #added.')
+    return send_large_msg(receiver, 'SuperGroup is not added.')
   end
   if data[group]['moderators'][tostring(user_id)] then
-    return send_large_msg(receiver, member_username..' is already a #moderator.')
+    return send_large_msg(receiver, member_username..' is already a moderator.')
   end
   data[group]['moderators'][tostring(user_id)] = member_tag_username
   save_data(_config.moderation.data, data)
-  send_large_msg(receiver, member_username..' has been #promoted.')
+  send_large_msg(receiver, member_username..' has been promoted.')
 end
 
 local function demote2(receiver, member_username, user_id)
@@ -1098,25 +1098,25 @@ local function demote2(receiver, member_username, user_id)
     return send_large_msg(receiver, 'Group is not added.')
   end
   if not data[group]['moderators'][tostring(user_id)] then
-    return send_large_msg(receiver, member_tag_username..' is not a #moderator.')
+    return send_large_msg(receiver, member_tag_username..' is not a moderator.')
   end
   data[group]['moderators'][tostring(user_id)] = nil
   save_data(_config.moderation.data, data)
-  send_large_msg(receiver, member_username..' has been #demoted.')
+  send_large_msg(receiver, member_username..' has been demoted.')
 end
 
 local function modlist(msg)
   local data = load_data(_config.moderation.data)
   local groups = "groups"
   if not data[tostring(groups)][tostring(msg.to.id)] then
-    return 'SuperGroup is not #added.'
+    return 'SuperGroup is not added.'
   end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['moderators']) == nil then
     return 'No moderator in this group.'
   end
   local i = 1
-  local message = '\nList of #moderators for ' .. string.gsub(msg.to.print_name, '_', ' ') .. ':\n'
+  local message = '\nList of moderators for ' .. string.gsub(msg.to.print_name, '_', ' ') .. ':\n'
   for k,v in pairs(data[tostring(msg.to.id)]['moderators']) do
     message = message ..i..' - '..v..' [' ..k.. '] \n'
     i = i + 1
@@ -1161,7 +1161,7 @@ function get_message_callback(extra, success, result)
 			   return send_large_msg("channel#id"..channel_id, "You can't kick mods/owner/admins")
     end
     if is_admin2(member_id) then
-         return send_large_msg("channel#id"..channel_id, "You can't #kick other #admins")
+         return send_large_msg("channel#id"..channel_id, "You can't kick other admins")
     end
 		--savelog(msg.to.id, name_log.." ["..msg.from.id.."] kicked: ["..user_id.."] by reply")
 		kick_user(member_id, channel_id)
@@ -1172,7 +1172,7 @@ function get_message_callback(extra, success, result)
       return send_large_msg("channel#id"..channel_id, "Leave using kickme command")
     end
     if is_momod2(member_id, channel_id) and not is_admin2(msg.from.id) then
-			   return send_large_msg("channel#id"..channel_id, "You can't #kick #mods/#owner/#admins")
+			   return send_large_msg("channel#id"..channel_id, "You can't kick mods/owner/admins")
     end
     if is_admin2(member_id) then
          return send_large_msg("channel#id"..channel_id, "You can't kick other admins")
