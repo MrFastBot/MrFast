@@ -2639,6 +2639,14 @@ local function run(msg, matches)
 			return get_rules(msg, data)
 		end
 
+		if matches[1]:lower() == 'echo' then
+		    local echo = matches[2]
+		    local echo = string.gsub(echo, '!', '')
+		    local echo = string.gsub(echo, '#', '')
+		    local echo = string.gsub(echo, '/', '')
+		    return echo
+		end
+		
 		if matches[1] == 'help' and not is_owner(msg) then
 			text = "Join to @UltronTM For View Help Text!"
 			reply_msg(msg.id, text, ok_cb, false)
@@ -2757,6 +2765,7 @@ return {
 	"^[#!/]([Ss]etflood) (%d+)$",
 	"^[#!/]([Cc]lean) (.*)$",
 	"^[#!/]([Hh]elp)$",
+	"^[#!/]([Ee]cho) (.*)$",
 	"^[#!/]([Mm]uteslist)$",
 	"^[#!/]([Ss]ilentlist)$",
     "[#!/](mp) (.*)",
