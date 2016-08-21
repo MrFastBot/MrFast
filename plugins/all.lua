@@ -1,7 +1,7 @@
 do
 local function get_msgs_user_chat(user_id, chat_id)
   local user_info = {}
-  local uhash = 'user:'..user_id
+  local uhash = 'ℹ️Chat ID➡️'..chat_id..'\n©Chat Users:\n'
   local user = redis:hgetall(uhash)
   local um_hash = 'msgs:'..user_id..':'..chat_id
   user_info.msgs = tonumber(redis:get(um_hash) or 0)
@@ -9,7 +9,7 @@ local function get_msgs_user_chat(user_id, chat_id)
   return user_info
 end
 local function chat_stats(chat_id)
-  local hash = 'chat:'..chat_id..':users'
+  local hash = 'ℹ️Chat ID➡️'..chat_id..'\n©Chat Users:\n'
   local users = redis:smembers(hash)
   local users_info = {}
   for i = 1, #users do
@@ -22,7 +22,7 @@ local function chat_stats(chat_id)
         return a.msgs > b.msgs
       end
     end)
-  local text = 'Chat stats:\n'
+  local text = 'ℹ️Chat stats⤵️\n\n'
   for k,user in pairs(users_info) do
     text = text..user.name..' = '..user.msgs..'\n'
   end
@@ -33,7 +33,7 @@ local function get_group_type(target)
   local data = load_data(_config.moderation.data)
   local group_type = data[tostring(target)]['group_type']
     if not group_type or group_type == nil then
-       return 'No group type available.\nUse /type in the group to set type.'
+       return 'No Group Type Available❌\nUse /type In The SuperGroup To Set Type💢'
     end
     return group_type
 end
@@ -42,7 +42,7 @@ local function get_description(target)
   local data = load_data(_config.moderation.data)
   local data_cat = 'description'
   if not data[tostring(target)][data_cat] then
-    return 'No description available.'
+    return 'No Description Available❌'
   end
   local about = data[tostring(target)][data_cat]
   return about
@@ -52,7 +52,7 @@ local function get_rules(target)
   local data = load_data(_config.moderation.data)
   local data_cat = 'rules'
   if not data[tostring(target)][data_cat] then
-    return 'No rules available.'
+    return 'No Rules Available❌'
   end
   local rules = data[tostring(target)][data_cat]
   return rules
@@ -66,10 +66,10 @@ local function modlist(target)
     return 'Group is not added or is Realm.'
   end
   if next(data[tostring(target)]['moderators']) == nil then
-    return 'No moderator in this group.'
+    return 'No Moderator In This Group❌'
   end
   local i = 1
-  local message = '\nList of moderators :\n'
+  local message = '\nList of moderators⤵️\n'
   for k,v in pairs(data[tostring(target)]['moderators']) do
     message = message ..i..' - @'..v..' [' ..k.. '] \n'
     i = i + 1
@@ -83,7 +83,7 @@ local function get_link(target)
   if not group_link or group_link == nil then 
     return "No link"
   end
-  return "Group link:\n"..group_link
+  return "SuperGroup/Group invition linkℹ️\n➖➖➖➖➖➖➖➖➖➖\n"..group_link
 end
 
 local function all(msg,target,receiver)
@@ -91,9 +91,9 @@ local function all(msg,target,receiver)
   if not data[tostring(target)] then
     return
   end
-  local text = "All the things I know about this group\n\n"
+  local text = "All The Things I Know About This Group\n\n"
   local group_type = get_group_type(target)
-  text = text.."Group Type: \n"..group_type
+  text = text.."'❕SuperGroup Type➡️"..group_type
   if group_type == "Group" or group_type == "Realm" then
 	local settings = show_group_settingsmod(msg,target)
 	text = text.."\n\n"..settings
@@ -102,21 +102,21 @@ local function all(msg,target,receiver)
 	text = text..'\n\n'..settings
   end
   local rules = get_rules(target)
-  text = text.."\n\nRules: \n"..rules
+  text = text.."\n\nSuperGroup Rules⤵️\n"..rules
   local description = get_description(target)
-  text = text.."\n\nAbout: \n"..description
+  text = text.."\n\nSuperGroup About⤵️\n"..description
   local modlist = modlist(target)
-  text = text.."\n\nMods: \n"..modlist
+  text = text.."\n\nSuperGroup Moderator⤵️\n"..modlist
   local link = get_link(target)
-  text = text.."\n\nLink: \n"..link
+  text = text.."\n\nSuperGroup ivition Link⤵️\n"..link
   local stats = chat_stats(target)
-  text = text.."\n\n"..stats
+  text = text.."\nChat Stats⤵️\n"..stats
   local mutes_list = mutes_list(target)
-  text = text.."\n\n"..mutes_list
+  text = text.."\nSuperGroup Mute List⤵️\n"..mutes_list
   local muted_user_list = muted_user_list(target)
-  text = text.."\n\n"..muted_user_list
+  text = text.."\nSuperGroup Silent List⤵️\n"..muted_user_list
   local ban_list = ban_list(target)
-  text = text.."\n\n"..ban_list
+  text = text.."\nBan list⤵️\n"..ban_list
   local file = io.open("./groups/all/"..target.."all.txt", "w")
   file:write(text)
   file:flush()
@@ -126,7 +126,7 @@ local function all(msg,target,receiver)
 end
 
 local function run(msg, matches)
-  if matches[1] == "all" and matches[2] and is_owner2(msg.from.id, matches[2]) then
+  if matches[1]:lower() == "all" and matches[2]:lower() and is_owner2(msg.from.id, matches[2]) then
     local receiver = get_receiver(msg)
     local target = matches[2]
     return all(msg,target,receiver)
@@ -134,7 +134,7 @@ local function run(msg, matches)
   if not is_owner(msg) then
     return
   end
-  if matches[1] == "all" and not matches[2] then
+  if matches[1]:lower() == "all" and not matches[2] then
     local receiver = get_receiver(msg)
     return all(msg,msg.to.id,receiver)
   end
@@ -143,8 +143,8 @@ end
 
 return {
   patterns = {
-  "^[#!/](all)$",
-  "^[#!/](all) (%d+)$"
+  "^[#!/](.*)$",
+  "^[#!/](.*) (%d+)$"
   },
   run = run
 }
