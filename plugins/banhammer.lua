@@ -165,7 +165,7 @@ local support_id = msg.from.id
 
   if matches[1]:lower() == "banlist" then -- Ban list !
     local chat_id = msg.to.id
-    if matches[2] and is_admin1(msg) then
+    if matches[2]:lower() and is_admin1(msg) then
       chat_id = matches[2]
     end
     return ban_list(chat_id)
@@ -326,21 +326,21 @@ end
 
 return {
   patterns = {
-    "^[#!/]([Bb]anall) (.*)$",
-    "^[#!/]([Bb]anall)$",
-    "^[#!/]([Bb]anlist) (.*)$",
-    "^[#!/]([Bb]anlist)$",
-    "^[#!/]([Gg]banlist)$",
-	"^[#!/]([Kk]ickme)",
-    "^[#!/]([Kk]ick)$",
-	"^[#!/]([Bb]an)$",
-    "^[#!/]([Bb]an) (.*)$",
-    "^[#!/]([Uu]nban) (.*)$",
-    "^[#!/]([Uu]nbanall) (.*)$",
-    "^[#!/]([Uu]nbanall)$",
-    "^[#!/]([Kk]ick) (.*)$",
-    "^[#!/]([Uu]nban)$",
-    "^[#!/]([Ii]d)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*)",
+    "^[#!/](.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*) (.*)$",
+    "^[#!/](.*)$",
+    "^[#!/](.*)$",
     "^!!tgservice (.+)$"
   },
   run = run,
