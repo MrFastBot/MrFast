@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been #added!\n And bot #started working in SuperGroup!'
+	  local text = 'SuperGroup has been added'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -63,7 +63,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been #removed!\nAnd bot #stopped working in SuperGroup!'
+	  local text = 'SuperGroup has been removed'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -1042,7 +1042,7 @@ function show_supergroup_settingsmod(msg, target)
  end
  
   local settings = data[tostring(target)]['settings']
-  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Switch Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\nCharge: "..expire.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥Mr.Fast Bot∥∑∥\n"                         
+  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Switch Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n🔵Charge: "..expire.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥Mr.Fast Bot∥∑∥\n"                         
   if string.match(text, 'yes') then text = string.gsub(text, 'yes', '🔐') end
   if string.match(text, 'no') then text = string.gsub(text, 'no', '🔓') end
   return text
@@ -1160,7 +1160,7 @@ function get_message_callback(extra, success, result)
 			   return send_large_msg("channel#id"..channel_id, "You can't kick mods/owner/admins")
     end
     if is_admin2(member_id) then
-         return send_large_msg("channel#id"..channel_id, "You can't #kick other #admins")
+         return send_large_msg("channel#id"..channel_id, "You can't kick other admins")
     end
 		--savelog(msg.to.id, name_log.." ["..msg.from.id.."] kicked: ["..user_id.."] by reply")
 		kick_user(member_id, channel_id)
