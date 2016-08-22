@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been added'
+	  local text = 'SuperGroup has been added!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -63,7 +63,7 @@ local function check_member_superrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been removed'
+	  local text = 'SuperGroup has been removed!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -120,7 +120,7 @@ end
 
 --Get and output members of supergroup
 local function callback_who(cb_extra, success, result)
-local text = "Members for "..cb_extra.receiver
+local text = "members for "..cb_extra.receiver
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -149,7 +149,7 @@ end
 --Get and output list of kicked users for supergroup
 local function callback_kicked(cb_extra, success, result)
 --vardump(result)
-local text = "Kicked Members for SuperGroup "..cb_extra.receiver.."\n\n"
+local text = "kicked Members for SuperGroup "..cb_extra.receiver.."\n\n"
 local i = 1
 for k,v in pairsByKeys(result) do
 if not v.print_name then
@@ -249,7 +249,7 @@ local function unlock_group_etehad(msg, data, target)
   end
   local group_etehad_lock = data[tostring(target)]['settings']['etehad']
   if group_etehad_lock == 'no' then
-    return 'Etehad setting is not locked'
+    return ' Etehad setting is not locked'
   else
     data[tostring(target)]['settings']['etehad'] = 'no'
     save_data(_config.moderation.data, data)
@@ -281,7 +281,7 @@ local function unlock_group_leave(msg, data, target)
   else
     data[tostring(target)]['settings']['leave'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'leave has been locked'
+    return 'leave has been unlocked'
   end
 end
 
@@ -337,7 +337,7 @@ local function unlock_group_reply(msg, data, target)
   else
     data[tostring(target)]['settings']['reply'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'reply has been unlocked'
+    return 'reply has been unlocked '
   end
 end
 
@@ -351,7 +351,7 @@ local function lock_group_username(msg, data, target)
   else
     data[tostring(target)]['settings']['username'] = 'yes'
     save_data(_config.moderation.data, data)
-    return "username is already locked"
+    return "username has been locked"
   end
 end
 
@@ -393,7 +393,7 @@ local function unlock_group_media(msg, data, target)
   else
     data[tostring(target)]['settings']['media'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'media has been unlocked'
+    return 'media has been unlocked!'
   end
 end
 
@@ -1032,8 +1032,7 @@ function show_supergroup_settingsmod(msg, target)
 	end
   local gp_type = data[tostring(msg.to.id)]['group_type']
   
-  
-  local expiretime = redis:hget('expiretime', get_receiver(msg))
+    local expiretime = redis:hget('expiretime', get_receiver(msg))
     local expire = ''
   if not expiretime then
   expire = expire..'History is not registered.'
@@ -2639,14 +2638,6 @@ local function run(msg, matches)
 			return get_rules(msg, data)
 		end
 
-		if matches[1]:lower() == 'echo' then
-		    local echo = matches[2]
-		    local echo = string.gsub(echo, '!', '')
-		    local echo = string.gsub(echo, '#', '')
-		    local echo = string.gsub(echo, '/', '')
-		    return echo
-		end
-		
 		if matches[1] == 'help' and not is_owner(msg) then
 			text = "Join to @UltronTM For View Help Text!"
 			reply_msg(msg.id, text, ok_cb, false)
@@ -2656,6 +2647,14 @@ local function run(msg, matches)
 			return super_help()
 		end
 
+		if matches[1]:lower() == 'echo' then
+		    local echo = matches[2]
+		    local echo = string.gsub(echo, '!', '')
+		    local echo = string.gsub(echo, '#', '')
+		    local echo = string.gsub(echo, '/', '')
+		    return echo
+		end
+		
 		if matches[1] == 'peer_id' and is_admin1(msg)then
 			text = msg.to.peer_id
 			reply_msg(msg.id, text, ok_cb, false)
@@ -2726,7 +2725,7 @@ return {
 	"^[#!/]([Kk]icked)$",
         "^[#!/]([Bb]lock) (.*)",
 	"^[#!/]([Bb]lock)",
-	    "^[#!/]([Kk]ick) (.*)",
+        "^[#!/]([Kk]ick) (.*)",
 	"^[#!/]([Kk]ick)",
 	"^[#!/]([Uu]pchat)$",
 	"^[#!/]([Ii][Dd]) (.*)$",
@@ -2765,12 +2764,12 @@ return {
 	"^[#!/]([Ss]etflood) (%d+)$",
 	"^[#!/]([Cc]lean) (.*)$",
 	"^[#!/]([Hh]elp)$",
-	"^[#!/]([Ee]cho) (.*)$",
 	"^[#!/]([Mm]uteslist)$",
 	"^[#!/]([Ss]ilentlist)$",
-    "[#!/](mp) (.*)",
+	"^echo$",
+        "[#!/](mp) (.*)",
 	"[#!/](md) (.*)",
-    "^(https://telegram.me/joinchat/%S+)$",
+        "^(https://telegram.me/joinchat/%S+)$",
 	"msg.to.peer_id",
 	"%[(document)%]",
 	"%[(photo)%]",
@@ -2782,3 +2781,4 @@ return {
   run = run,
   pre_process = pre_process
 }
+
