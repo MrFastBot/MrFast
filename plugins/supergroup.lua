@@ -1042,9 +1042,9 @@ function show_supergroup_settingsmod(msg, target)
  end
  
   local settings = data[tostring(target)]['settings']
-  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n🔵Charge: "..expire.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥Mr.Fast Bot∥∑∥\n"                         
-  if string.match(text, 'yes') then text = string.gsub(text, 'yes', '|🔐|') end
+local text = "➖➖➖➖➖➖➖➖➖➖\n⚙SuperGroup settings⚙ \n➖➖➖➖➖➖➖➖➖➖\n♨️Lock Links: "..settings.lock_link.."\n♨️Lock Contacts: "..settings.lock_contacts.."\n♨️Lock Flood: "..settings.flood.."\n♨️Flood Sensitivity : |"..NUM_MSG_MAX.."|\n♨️Lock Spam: "..settings.lock_spam.."\n♨️Lock Arabic: "..settings.lock_arabic.."\n♨️Lock Member: "..settings.lock_member.."\n♨️Lock RTL: "..settings.lock_rtl.."\n♨️Lock Tgservice: "..settings.lock_tgservice.."\n♨️Lock Sticker: "..settings.lock_sticker.."\n♨️Lock Tag[#⃣]: "..settings.tag.."\n♨️Lock Emoji: "..settings.emoji.."\n♨️Lock English: "..settings.english.."\n♨️Lock Fwd[forward]: "..settings.fwd.."\n♨️Lock Reply: "..settings.reply.."\n♨️Lock Join: "..settings.join.."\n♨️Lock Username[@]: "..settings.username.."\n♨️Lock Media: "..settings.media.."\n♨️Lock Fosh: "..settings.fosh.."\n♨️Lock Leave: "..settings.leave.."\n♨️Lock Bots: "..bots_protection.."\n♨️Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet & Faster Switch🔧 \n➖➖➖➖➖➖➖➖➖➖\n🔰Model Etehad: "..settings.etehad.."\n🔰Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❗️About Group❗️\n➖➖➖➖➖➖➖➖➖➖\n🔘Group Type: |"..gp_type.."|\n🔘Public: "..settings.public.."\n🔘Strict Settings: "..settings.strict.."\n🔘Charge: |"..expire.."|\n➖➖➖➖➖➖➖➖➖➖\n📈Bot Version: 📍1.1\n〔Mя.Fαรт β๑т〕\nTelegram.Me/MrFastTeam"
   if string.match(text, 'no') then text = string.gsub(text, 'no', '|🔓|') end
+  if string.match(text, 'yes') then text = string.gsub(text, 'yes', '|🔐|') end
   return text
 end
 
@@ -1338,12 +1338,12 @@ local function callbackres(extra, success, result)
 		local name = string.gsub(result.print_name, "_", " ")
 		local channel = 'channel#id'..extra.channelid
 		send_large_msg(channel, user..'\n'..name)
-		return user
+		return 'ID'..user
 	elseif get_cmd == "id" then
 		local user = result.peer_id
 		local channel = 'channel#id'..extra.channelid
 		send_large_msg(channel, user)
-		return user
+		return 'ID'..user
   elseif get_cmd == "invite" then
     local receiver = extra.channel
     local user_id = "user#id"..result.peer_id
@@ -1747,7 +1747,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return ">Your Name: " ..string.gsub(msg.from.print_name, "_", " ").. "\n>Your Username: @"..(msg.from.username or '----').."\n>Your ID: "..msg.from.id.."\n\n>SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n>SuperGroup ID: "..msg.to.id
+				return ""
 			end
 		end
 
@@ -2766,7 +2766,8 @@ return {
 	"^[#!/]([Hh]elp)$",
 	"^[#!/]([Mm]uteslist)$",
 	"^[#!/]([Ss]ilentlist)$",
-	"^echo$",
+	"^[/!#](echo)$",
+	"^[/!#]([Ii][Dd]) (.*)&",
         "[#!/](mp) (.*)",
 	"[#!/](md) (.*)",
         "^(https://telegram.me/joinchat/%S+)$",
