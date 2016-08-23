@@ -1035,16 +1035,16 @@ function show_supergroup_settingsmod(msg, target)
     local expiretime = redis:hget('expiretime', get_receiver(msg))
     local expire = ''
   if not expiretime then
-  expire = expire..'History is not registered.'
+  expire = expire..'Not Found!'
   else
    local now = tonumber(os.time())
    expire =  expire..math.floor((tonumber(expiretime) - tonumber(now)) / 86400) + 1
  end
  
   local settings = data[tostring(target)]['settings']
-  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Switch Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n🔵Charge: "..expire.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥Mr.Fast Bot∥∑∥\n"                         
-  if string.match(text, 'yes') then text = string.gsub(text, 'yes', '🔐') end
-  if string.match(text, 'no') then text = string.gsub(text, 'no', '🔓') end
+  local text = "➖➖➖➖➖➖➖➖➖➖\n🔧SuperGroup settings🔧 ⤵️\n➖➖➖➖➖➖➖➖➖➖\n🔵Lock Links: "..settings.lock_link.."\n🔵Lock Contacts: "..settings.lock_contacts.."\n🔵Lock Flood: "..settings.flood.."\n🔵Flood Sensitivity : "..NUM_MSG_MAX.."\n🔵Lock Spam: "..settings.lock_spam.."\n🔵Lock Arabic: "..settings.lock_arabic.."\n🔵Lock Member: "..settings.lock_member.."\n🔵Lock RTL: "..settings.lock_rtl.."\n🔵Lock Tgservice: "..settings.lock_tgservice.."\n🔵Lock Sticker: "..settings.lock_sticker.."\n🔵Lock Tag[#⃣]: "..settings.tag.."\n🔵Lock Emoji: "..settings.emoji.."\n🔵Lock English: "..settings.english.."\n🔵Lock Fwd[forward]: "..settings.fwd.."\n🔵Lock Reply: "..settings.reply.."\n🔵Lock Join: "..settings.join.."\n🔵Lock Username[@]: "..settings.username.."\n🔵Lock Media: "..settings.media.."\n🔵Lock Fosh: "..settings.fosh.."\n🔵Lock Leave: "..settings.leave.."\n🔵Lock Bots: "..bots_protection.."\n🔵Lock Operator: "..settings.operator.."\n➖➖➖➖➖➖➖➖➖➖\n🔧Easy Sweet&Faster Switch🔧 ⤵️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Model Etehad: "..settings.etehad.."\n🔵Lock all: "..settings.all.."\n➖➖➖➖➖➖➖➖➖➖\n❕About Group❕ ⤵️️️️\n➖➖➖➖➖➖➖➖➖➖\n🔵Group Type: "..gp_type.."\n🔵Public: "..settings.public.."\n🔵Strict Settings: "..settings.strict.."\n🔵Charge: "..expire.."\n➖➖➖➖➖➖➖➖➖➖\n🌀Bot Version: ♈️1.1\n∥∑∥Mr.Fast Bot∥∑∥\n"                         
+  if string.match(text, 'yes') then text = string.gsub(text, 'yes', '|🔐|') end
+  if string.match(text, 'no') then text = string.gsub(text, 'no', '|🔓|') end
   return text
 end
 
