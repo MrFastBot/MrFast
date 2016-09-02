@@ -366,8 +366,6 @@ function create_config( )
 ❕لیست کلمات فیلتر گروه
 ❗️/clean deleted
 ❕حذف اکانت های حذف شده گروه
-❗feedback [Text] 
-❕ارسال پیام به پشتیبانی
 ❗️/warn [id|username|repy] 
 ❕اخطار دادن به کاربر
 ❗️/unwarn [id|username|reply] 
@@ -380,14 +378,10 @@ function create_config( )
 ❕تعیین تعداد اخطار ها
 ❗️/me
 ❕نمایش مقام و اطلاعات شما 
-❗️/nerkh
-❕نمایش نرخ گروخ با ربات UltronTG
 ❗️/time
 ❕نمایش ساعت 
 ❗️/write [Text] 
-❕زیبا نویسب کلمه شما با ۱۰۰ فونت
-❗️/shortlink [Link] 
-❕کوتاه کردن لینک
+❕زیبا نویسی کلمه شما با ۱۰۰ فونت
 ❗️/charge
 ❕نمایش مقدار شارژ باقی مانده گروه
 ❗/support
