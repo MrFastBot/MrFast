@@ -336,10 +336,10 @@ function create_config( )
 ❕دریافت قوانین گروه
 ❗️/about
 ❕دریافت توضیحات گروه
-❗️/lock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator] 
-❕قفل کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
-❗️/unlock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
-❕باز کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
+❗️/lock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|cmd|media|operator] 
+❕قفل کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|cmd|media|operator]
+❗️/unlock [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|cmd|media|operator]
+❕باز کردن [links|flood|spam|arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|cmd|media|operator]
 ❗️/mute [all|audio|gifs|photo|video|service] 
 ❕موت کردن [all|audio|gifs|photo|video|service] 
 ❗️/unmute [all|audio|gifs|photo|video|service] 
