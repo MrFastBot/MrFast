@@ -1,27 +1,47 @@
-local function run(msg, matches)
-    if is_momod(msg) then
-        return
-    end
-    local data = load_data(_config.moderation.data)
-    if data[tostring(msg.to.id)] then
-        if data[tostring(msg.to.id)]['settings'] then
-            if data[tostring(msg.to.id)]['settings']['cmd'] then
-                cmd = data[tostring(msg.to.id)]['settings']['cmd']
-            end
-        end
-    end
-    local chat = get_receiver(msg)
-    local user = "user#id"..msg.from.id
-    if cmd == "yes" then
-       delete_msg(msg.id, ok_cb, true)
-    end
+do
+local function is_cmd(jtext)
+if jtext:match("[/#!]") then
+return true
 end
- 
+return false
+end
+local function pre_process(msg)
+    
+
+    local hash = 'cmdlock:'..msg.to.id
+    if redis:get(hash) and is_cmd(msg.text) and not is_momod(msg)then
+            delete_msg(msg.id, ok_cb, true)
+            return "done"
+        end
+        return msg
+    end
+
+  
+
+
+local function run(msg, matches)
+    chat_id =  msg.to.id
+    
+    if is_momod(msg) and matches[1] == 'lock' then
+      
+            
+                    local hash = 'cmdlock:'..msg.to.id
+                    redis:set(hash, true)
+                    return "cmd has been locked!"
+  elseif is_momod(msg) and matches[1] == 'unlock' then
+                    local hash = 'cmdlock:'..msg.to.id
+                    redis:del(hash)
+                    return "cmd has been unlocked!"
+end
+
+end
+
 return {
-  patterns = {
-  "/"
-  "!"
-  "#"
-  },
-  run = run
+    patterns = {
+        '^[/!#](lock) (cmd)$',
+        '^[/!#](unlock) (cmd)$'
+    },
+    run = run,
+    pre_process = pre_process
 }
+end
